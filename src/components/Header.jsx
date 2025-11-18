@@ -9,6 +9,8 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [headerShadow, setHeaderShadow] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [headerHeight, setHeaderHeight] = useState(80);
+  const headerRef = React.useRef(null);
 
   // Toggle mobile menu
   const toggleMenu = () => {
@@ -21,6 +23,18 @@ const Header = () => {
     setIsMenuOpen(false);
     document.body.classList.remove('overflow-hidden');
   };
+
+  // Calculate header height
+  useEffect(() => {
+    const updateHeaderHeight = () => {
+      if (headerRef.current) {
+        setHeaderHeight(headerRef.current.offsetHeight);
+      }
+    };
+    updateHeaderHeight();
+    window.addEventListener('resize', updateHeaderHeight);
+    return () => window.removeEventListener('resize', updateHeaderHeight);
+  }, []);
 
   // Handle scroll for header shadow and active section
   useEffect(() => {
@@ -60,13 +74,11 @@ const Header = () => {
 
   return (
     <>
+      {/* Header - Not Fixed */}
       <header
+        ref={headerRef}
         id="header"
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          headerShadow
-            ? 'bg-black/80 backdrop-blur-xl shadow-2xl shadow-black/50 border-b border-yellow-500/20'
-            : 'bg-black/50 backdrop-blur-lg'
-        }`}
+        className="relative z-50 bg-transparent"
       >
         <div className="container mx-auto px-6 py-4 md:py-6 flex justify-between items-center">
           <a
@@ -163,6 +175,16 @@ const Header = () => {
           </div>
         </div>
       </header>
+
+      {/* Fixed Blur Ribbon - Below Header */}
+      <div
+        className={`fixed left-0 right-0 z-40 h-20 md:h-24 transition-all duration-300 ${
+          headerShadow
+            ? 'bg-white/10 backdrop-blur-xl shadow-2xl shadow-black/50 border-b border-yellow-500/20'
+            : 'bg-white/5 backdrop-blur-md'
+        }`}
+        style={{ top: `${headerHeight}px` }}
+      ></div>
 
       {/* Mobile Menu Sidebar */}
       <div
