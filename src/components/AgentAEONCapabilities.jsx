@@ -1,5 +1,8 @@
 import React from 'react';
 import { useScrollAnimation } from '../utils/useScrollAnimation';
+import proactiveEngagementImage from '../assets/Proactive_Engagement.png';
+import knowledgeImage from '../assets/knowledge.png';
+import seamlessIntegrationsImage from '../assets/Seamless_Integrations.png';
 
 /**
  * Agent AEON Capabilities Component
@@ -12,61 +15,45 @@ const AgentAEONCapabilities = () => {
   const card3Ref = useScrollAnimation();
   const card4Ref = useScrollAnimation();
   const card5Ref = useScrollAnimation();
+  const card6Ref = useScrollAnimation();
 
   const capabilities = [
     {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      ),
-      title: 'Instant Answers',
-      description: 'Handles tens of thousands of unique queries, from troubleshooting to FAQs, so your customers always get the answers they need—instantly.',
+      title: 'Proactive Engagement',
+      description: ' AEON proactively guides users, recommends next steps, and highlights key actions to improve conversions, support outcomes, and user satisfaction.',
       gradient: 'from-yellow-500 to-yellow-600',
+      image: proactiveEngagementImage,
     },
     {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-        </svg>
-      ),
-      title: 'Proactive Support',
-      description: 'Monitors customer requests in real time, predicts needs, and resolves concerns before they escalate.',
+      title: 'Deploy Anywhere You Need It',
+      description: 'Embed your AEON chatbot across websites, landing pages, portals, or dashboards with a single script — keeping every touchpoint consistent, responsive, and brand-aligned.',
       gradient: 'from-yellow-600 to-yellow-700',
     },
     {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 0 1-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-        </svg>
-      ),
-      title: 'Multichannel Coverage',
-      description: 'Manages support across email, chat, web, and social platforms for a seamless customer experience.',
+      title: 'Workflow & Task Automation',
+      description: 'Automate repetitive interactions like lead capture, form submission, appointment booking, and data lookup so your team can focus on higher-impact work while AEON handles the rest.',
       gradient: 'from-yellow-500 to-orange-500',
     },
     {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2m-6 9l2 2 4-4" />
-        </svg>
-      ),
-      title: 'Task Automation',
-      description: 'Automates routine support actions—like password resets, returns, and ticket creation—freeing human agents for higher-value work.',
+      title: 'Powered by Your Knowledge',
+      description: 'AEON is trained on your documents, URLs, FAQs, and product data, delivering responses that are always accurate, updated, and aligned with your brand messaging.',
       gradient: 'from-yellow-500 to-yellow-600',
+      image: knowledgeImage,
     },
     {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-        </svg>
-      ),
-      title: 'Knowledge Integration',
-      description: 'Has access to your latest policies, product docs, and brand data, ensuring up-to-date and on-brand responses every time.',
+      title: 'Conversion-Focused Interactions',
+      description: 'From identifying high-intent visitors to qualifying leads, AEON turns customer conversations into trackable business outcomes, helping you grow faster with less effort.',
       gradient: 'from-yellow-600 to-yellow-500',
+    },
+    {
+      title: 'Seamless Integrations',
+      description: 'Connect AEON with your tools — CRM, email platforms, analytics, or internal systems — to create an end-to-end automated customer experience.',
+      gradient: 'from-yellow-500 to-orange-500',
+      image: seamlessIntegrationsImage,
     },
   ];
 
-  const refs = [card1Ref, card2Ref, card3Ref, card4Ref, card5Ref];
+  const refs = [card1Ref, card2Ref, card3Ref, card4Ref, card5Ref, card6Ref];
 
   return (
     <section id="capabilities" className="py-20 bg-[#0A0A0A] overflow-hidden">
@@ -89,29 +76,30 @@ const AgentAEONCapabilities = () => {
                 ref={refs[index]}
                 className={`animate-on-scroll fade-in-up ${delay} group`}
               >
-                <div className="relative h-full p-8 rounded-2xl bg-gradient-to-br from-[#121212] to-[#0A0A0A] border border-gray-800 hover:border-gray-700 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl">
-                  {/* Gradient overlay on hover */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${capability.gradient} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-500`}></div>
-                  
-                  <div className="relative z-10">
-                    {/* Icon */}
-                    <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${capability.gradient} mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
-                      <div className="text-white">
-                        {capability.icon}
-                      </div>
+                <div className="relative h-[400px] rounded-2xl overflow-hidden border border-gray-800 hover:border-yellow-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-yellow-500/20">
+                  {/* Image or Golden Yellow Background */}
+                  {capability.image ? (
+                    <div className="absolute inset-0">
+                      <img 
+                        src={capability.image} 
+                        alt={capability.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/20 to-yellow-600/20"></div>
                     </div>
+                  ) : (
+                    <div className={`absolute inset-0 bg-gradient-to-br ${capability.gradient} transition-all duration-500 group-hover:brightness-110`}></div>
+                  )}
 
-                    {/* Content */}
-                    <h3 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                  {/* Overlay with text - slides up from bottom on hover */}
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out bg-gradient-to-t from-black/95 via-black/90 to-black/70">
+                    <h3 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: "'Outfit', sans-serif" }}>
                       {capability.title}
                     </h3>
-                    <p className="text-gray-400 leading-relaxed" style={{ fontFamily: "'Poppins', sans-serif" }}>
+                    <p className="text-gray-300 leading-relaxed text-sm" style={{ fontFamily: "'Poppins', sans-serif" }}>
                       {capability.description}
                     </p>
                   </div>
-
-                  {/* Animated border */}
-                  <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${capability.gradient} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 -z-10`}></div>
                 </div>
               </div>
             );

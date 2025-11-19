@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import MeetAEON from "./components/MeetAEON";
 import TrustedBy from "./components/TrustedBy";
 import CurrentReality from "./components/CurrentReality";
 import ROI from "./components/ROI";
@@ -34,13 +35,13 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <MeetAEON />
         <TrustedBy />
+        <HowAEONWorks />
         <AgentAEONCapabilities />
         <DelightfulService />
         <WhyChooseAEONSupport />
         <ElevateExperience />
-        <HowAEONWorks />
-        
         <Pricing />
         <Testimonials />
         <FinalCTA />

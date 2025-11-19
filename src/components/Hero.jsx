@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useScrollAnimation } from '../utils/useScrollAnimation';
+import Orb from '../utilities/orb';
 
 /**
  * Agent AEON Introduction Component
@@ -30,28 +31,27 @@ const Hero = () => {
   }, [words.length]);
 
   return (
-    <section className="relative py-24 md:py-32 bg-gradient-to-b from-[#0A0A0A] via-[#101010] to-[#0A0A0A] overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-[#0A0A0A] via-[#101010] to-[#0A0A0A] overflow-hidden  md:py-32">
+      {/* Orb Background */}
+      <div className="w-full h-[400px] md:h-[700px] lg:h-[950px] absolute top-[45%] md:top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-0">
+        <Orb
+          hoverIntensity={0.5}
+          rotateOnHover={true}
+          hue={0}
+          forceHoverState={false}
+        />
+      </div>
+      
       {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-1/3 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <div className="absolute top-0 left-1/3 w-48 h-48 md:w-96 md:h-96 bg-yellow-500/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/3 w-48 h-48 md:w-96 md:h-96 bg-yellow-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }}></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 relative z-20">
         <div className="flex justify-center">
           <div className="text-center max-w-6xl">
-            {/* Badge */}
-            <div
-              ref={badgeRef}
-              className="animate-on-scroll fade-in-up mb-8 inline-block"
-            >
-              <span className="inline-flex items-center px-5 py-2.5 rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-sm font-semibold backdrop-blur-sm">
-                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-5l-5 5v-5z" />
-                </svg>
-                 AI Assistant Builder
-              </span>
-            </div>
+          
 
             <h2
               ref={titleRef}
@@ -60,7 +60,7 @@ const Hero = () => {
             >
               <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">AEON</span>
               <br />
-              <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-300 mt-2 block">
+              <span className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold text-gray-300 mt-2 block">
                 Your Dedicated AI Assistant
               </span>
             </h2>
@@ -85,13 +85,101 @@ const Hero = () => {
               </p>
             </div> */}
 
-            <p
+            {/* <p
               ref={subtitleRef}
               className="animate-on-scroll fade-in-up delay-100 mt-6 max-w-6xl mx-auto text-xl sm:text-2xl text-gray-300 leading-relaxed"
               style={{ fontFamily: "'Poppins', sans-serif" }}
             >
               Designed to deliver <span className="text-yellow-400 font-semibold">instant, intelligent and personalized </span> interactions for your visitors  <span className="text-yellow-400 font-semibold">— anytime, anywhere </span>. Whether guiding users, capturing leads, or <span className="text-yellow-400 font-semibold">answering complex questions </span>, AEON elevates every customer moment with smart automation and human-like clarity.
-            </p>
+            </p> */}
+
+            {/* Buttons - Hidden on mobile, flex row for big screens */}
+            <div className="hidden md:flex flex-row animate-on-scroll fade-in-up delay-200 mt-10 items-center justify-center gap-4">
+              <a
+                href="#start"
+                className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-semibold px-6 py-3 md:px-8 md:py-3.5 rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300 shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 hover:scale-105 text-base md:text-lg flex items-center justify-center gap-2 group whitespace-nowrap"
+              >
+                GET Started
+                <svg
+                  className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#features"
+                className="bg-transparent border-2 border-yellow-500/50 text-yellow-400 font-semibold px-6 py-3 md:px-8 md:py-3.5 rounded-lg hover:border-yellow-400 hover:text-yellow-300 hover:bg-yellow-500/10 transition-all duration-300 hover:scale-105 text-base md:text-lg"
+              >
+                Know More
+              </a>
+            </div>
+
+             {/* Badge - Hidden on mobile, shown below orb */}
+             <div
+              ref={badgeRef}
+              className="hidden md:block animate-on-scroll fade-in-up mt-10 inline-block"
+            >
+              <span className="inline-flex items-center px-5 py-2.5 rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-sm font-semibold backdrop-blur-sm">
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                  Powered By Evoke
+              </span>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+      {/* Buttons and Badge for Mobile - Positioned below orb */}
+      <div className="md:hidden absolute bottom-20 left-1/2 -translate-x-1/2 w-full px-6 z-20">
+        <div className="flex flex-col items-center justify-center gap-4">
+          {/* Buttons */}
+          <div className="animate-on-scroll fade-in-up delay-200 flex items-center justify-center gap-4">
+            <a
+              href="#start"
+              className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-semibold px-6 py-3 rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300 shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 hover:scale-105 text-base flex items-center justify-center gap-2 group w-full sm:w-auto whitespace-nowrap"
+            >
+              GET Started
+              <svg
+                className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
+              </svg>
+            </a>
+            <a
+              href="#features"
+              className="bg-transparent border-2 border-yellow-500/50 text-yellow-400 font-semibold px-3 py-3 rounded-lg hover:border-yellow-400 hover:text-yellow-300 hover:bg-yellow-500/10 transition-all duration-300 hover:scale-105 text-base w-full sm:w-auto text-center"
+            >
+              Know More
+            </a>
+          </div>
+          {/* Badge */}
+          <div className="animate-on-scroll fade-in-up delay-300 inline-block mt-2">
+            <span className="inline-flex items-center px-5 py-2.5 rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-sm font-semibold backdrop-blur-sm">
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Powered By Evoke
+            </span>
           </div>
         </div>
       </div>

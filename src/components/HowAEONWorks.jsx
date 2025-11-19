@@ -1,11 +1,23 @@
 import React from 'react';
 import { useScrollAnimation } from '../utils/useScrollAnimation';
+import { 
+  BarChart3, 
+  BookOpen, 
+  Palette, 
+  Rocket, 
+  Settings,
+  Brain,
+  Mail,
+  Zap,
+  Folder,
+  Server
+} from 'lucide-react';
 
 /**
  * How AEON Works Component
  * Roadmap section showing the 4-step process of how AEON works
  */
-const HowAEONWorks = () => {
+const  HowAEONWorks = () => {
   const titleRef = useScrollAnimation();
   const step1Ref = useScrollAnimation();
   const step2Ref = useScrollAnimation();
@@ -17,49 +29,83 @@ const HowAEONWorks = () => {
       number: '1',
       title: 'Build',
       description: 'Choose a template or start from scratch using the visual builder.',
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-        </svg>
-      ),
+      icon: <BarChart3 className="w-8 h-8" />,
     },
     {
       number: '2',
       title: 'Train',
       description: 'Upload your data or connect your website for instant knowledge sync.',
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-        </svg>
-      ),
+      icon: <BookOpen className="w-8 h-8" />,
     },
     {
       number: '3',
       title: 'Customize',
       description: 'Set colors, brand voice, actions, and advanced logic.',
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-        </svg>
-      ),
+      icon: <Palette className="w-8 h-8" />,
     },
     {
       number: '4',
       title: 'Deploy',
       description: 'Copy-paste one script. Your bot goes live instantly.',
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      ),
+      icon: <Rocket className="w-8 h-8" />,
     },
   ];
 
   const refs = [step1Ref, step2Ref, step3Ref, step4Ref];
 
   return (
-    <section id="how-it-works" className="py-20 bg-[#0A0A0A]">
-      <div className="container mx-auto px-6">
+    <section id="how-it-works" className="py-20 bg-[#0A0A0A] relative overflow-hidden">
+      {/* Floating revolving icons - positioned relative to section */}
+      {/* Build icon - Top left corner */}
+      <div className="absolute top-[10%] left-[3%] w-14 h-14 text-yellow-500/50 animate-revolve-1 hidden lg:block pointer-events-none z-0">
+        <div className="w-full h-full animate-spin-slow">
+          <BarChart3 className="w-full h-full drop-shadow-[0_0_8px_rgba(234,179,8,0.6)]" strokeWidth={1.5} />
+        </div>
+      </div>
+
+      {/* Train icon - Top right corner */}
+      <div className="absolute top-[12%] right-[3%] w-12 h-12 text-yellow-600/50 animate-revolve-2 hidden lg:block pointer-events-none z-0">
+        <div className="w-full h-full animate-spin-slow-reverse">
+          <Brain className="w-full h-full drop-shadow-[0_0_8px_rgba(234,179,8,0.6)]" strokeWidth={1.5} />
+        </div>
+      </div>
+
+      {/* Customize icon - Bottom left */}
+      <div className="absolute bottom-[10%] left-[4%] w-16 h-16 text-yellow-500/45 animate-revolve-3 hidden lg:block pointer-events-none z-0">
+        <div className="w-full h-full animate-spin-slow">
+          <Mail className="w-full h-full drop-shadow-[0_0_8px_rgba(234,179,8,0.6)]" strokeWidth={1.5} />
+        </div>
+      </div>
+
+      {/* Deploy icon - Bottom right */}
+      <div className="absolute bottom-[12%] right-[4%] w-13 h-13 text-yellow-600/50 animate-revolve-4 hidden lg:block pointer-events-none z-0">
+        <div className="w-full h-full animate-spin-slow-reverse">
+          <Zap className="w-full h-full drop-shadow-[0_0_8px_rgba(234,179,8,0.6)]" strokeWidth={1.5} />
+        </div>
+      </div>
+
+      {/* Folder icon - Top center-left */}
+      <div className="absolute top-[8%] left-[20%] w-11 h-11 text-yellow-500/40 animate-revolve-5 hidden lg:block pointer-events-none z-0">
+        <div className="w-full h-full animate-spin-slow">
+          <Folder className="w-full h-full drop-shadow-[0_0_8px_rgba(234,179,8,0.6)]" strokeWidth={1.5} />
+        </div>
+      </div>
+
+      {/* Database icon - Bottom center-right */}
+      <div className="absolute bottom-[8%] right-[20%] w-14 h-14 text-yellow-600/45 animate-revolve-6 hidden lg:block pointer-events-none z-0">
+        <div className="w-full h-full animate-spin-slow-reverse">
+          <Server className="w-full h-full drop-shadow-[0_0_8px_rgba(234,179,8,0.6)]" strokeWidth={1.5} />
+        </div>
+      </div>
+
+      {/* Settings/Gear icon - Top center-right */}
+      <div className="absolute top-[6%] right-[18%] w-12 h-12 text-yellow-500/45 animate-revolve-7 hidden lg:block pointer-events-none z-0">
+        <div className="w-full h-full animate-spin-slow">
+          <Settings className="w-full h-full drop-shadow-[0_0_8px_rgba(234,179,8,0.6)]" strokeWidth={1.5} />
+        </div>
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         {/* Title Section */}
         <div ref={titleRef} className="text-center max-w-3xl mx-auto animate-on-scroll fade-in-up mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>
@@ -70,50 +116,61 @@ const HowAEONWorks = () => {
           </p>
         </div>
 
-        {/* Roadmap Timeline - Alternating Left/Right */}
-        <div className="max-w-6xl mx-auto">
+        {/* Horizontal Layout */}
+        <div className="max-w-7xl mx-auto">
           <div className="relative">
-            {/* Vertical connecting line - centered */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-yellow-500 via-yellow-500/50 to-yellow-500 transform -translate-x-1/2 hidden md:block"></div>
+            {/* Animated background glow */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-32 bg-yellow-500/5 blur-3xl rounded-full animate-pulse-slow"></div>
+            
+            {/* Horizontal connecting line with glow */}
+            <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-yellow-500/30 to-yellow-500/50 via-yellow-500/30 to-transparent transform -translate-y-1/2 hidden md:block"></div>
+            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-yellow-500 via-yellow-500/50 to-yellow-500 transform -translate-y-1/2 hidden md:block shadow-[0_0_20px_rgba(234,179,8,0.5)]"></div>
+            
+            {/* Horizontal shimmer line overlay */}
+            <div className="absolute top-1/2 left-0 right-0 h-2 transform -translate-y-1/2 hidden md:block overflow-hidden">
+              <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-yellow-400/90 to-transparent animate-horizontal-shimmer shadow-[0_0_30px_rgba(234,179,8,0.8)]"></div>
+            </div>
 
-            {/* Steps */}
+            {/* Steps in horizontal row */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 relative z-10">
             {steps.map((step, index) => {
               const delay = `delay-${(index + 1) * 100}`;
-              const isEven = index % 2 === 0; // 0, 2 are left (even index), 1, 3 are right (odd index)
               
               return (
                 <div
                   key={index}
                   ref={refs[index]}
-                  className={`relative mb-16 last:mb-0 animate-on-scroll fade-in-up ${delay}`}
-                >
-                  <div className={`flex flex-col md:flex-row items-start gap-6 ${
-                    isEven ? 'md:flex-row' : 'md:flex-row-reverse'
-                  }`}>
-                    {/* Step Number Circle - Always centered on line */}
-                    <div className="relative z-10 flex-shrink-0 md:absolute md:left-1/2 md:transform md:-translate-x-1/2 group">
-                      <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center text-black font-bold text-xl md:text-2xl shadow-lg shadow-yellow-500/30 border-4 border-[#0A0A0A] group-hover:scale-110 transition-transform duration-300 relative overflow-hidden">
-                        <span className="relative z-10">{step.number}</span>
-                        {/* Icon overlay on hover */}
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-yellow-600 rounded-full">
-                          <div className="text-black scale-75">
-                            {step.icon}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    className={`animate-on-scroll fade-in-up ${delay} group`}
+                  >
+                    <div className="flex flex-col items-center text-center h-full transform transition-all duration-500 hover:scale-105">
+                      {/* Step Number Circle with enhanced animations */}
+                    
 
-                    {/* Step Content Card - Alternating sides */}
-                    <div className={`flex-1 pt-2 md:pt-0 ${
-                      isEven ? 'md:text-left md:pr-8 md:mr-auto md:max-w-md' : 'md:text-right md:pl-8 md:ml-auto md:max-w-md'
-                    }`}>
-                      <div className="bg-[#121212] border border-gray-800 rounded-xl p-6 md:p-8 hover:border-yellow-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/10">
-                        <div className="flex items-center gap-3 mb-3">
-                          <h3 className="text-2xl md:text-3xl font-bold text-white" style={{ fontFamily: "'Outfit', sans-serif" }}>
-                            Step {step.number} — {step.title}
+                      {/* Step Content Card with enhanced styling */}
+                      <div className="relative bg-gradient-to-br from-[#121212] via-[#0F0F0F] to-[#121212] border border-gray-800 rounded-2xl p-6 md:p-8 hover:border-yellow-500/70 transition-all duration-500 hover:shadow-2xl hover:shadow-yellow-500/30 w-full flex-1 flex flex-col transform group-hover:-translate-y-2 overflow-hidden">
+                        {/* Gradient overlay on hover */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-transparent to-yellow-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        {/* Animated border glow */}
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-yellow-500/0 via-yellow-500/20 to-yellow-600/0 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10"></div>
+                        
+                        <div className="relative z-10">
+                          {/* Icon */}
+                          <div className="flex justify-center mb-4">
+                            <div className="text-yellow-500 group-hover:text-yellow-400 transition-colors duration-300">
+                              {step.icon}
+                            </div>
+                          </div>
+                          
+                          {/* Step number badge */}
+                          <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-yellow-500/20 to-yellow-600/20 border border-yellow-500/30 mb-4 text-yellow-400 font-bold text-sm">
+                            {step.number}
+                          </div>
+
+                          <h3 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-yellow-400 transition-colors duration-300" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                            {step.title}
                           </h3>
-                        </div>
-                        <p className="text-gray-400 leading-relaxed text-lg" style={{ fontFamily: "'Poppins', sans-serif" }}>
+                          <p className="text-gray-400 leading-relaxed text-sm md:text-base flex-grow group-hover:text-gray-300 transition-colors duration-300" style={{ fontFamily: "'Poppins', sans-serif" }}>
                           {step.description}
                         </p>
                       </div>
@@ -122,6 +179,7 @@ const HowAEONWorks = () => {
                 </div>
               );
             })}
+            </div>
           </div>
         </div>
       </div>

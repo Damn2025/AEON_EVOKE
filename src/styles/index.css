@@ -357,3 +357,222 @@ html {
   padding: 0 1.5rem;
 }
 
+/* Line Shimmer Animation */
+@keyframes lineShimmer {
+  0% {
+    transform: translate(-50%) translateY(-25%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%) translateY(300%);
+    opacity: 1;
+  }
+}
+
+@keyframes horizontalShimmer {
+  0% {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(400%);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseSlow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes pingSlow {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  75%, 100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.animate-horizontal-shimmer {
+  animation: horizontalShimmer 3s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-ping-slow {
+  animation: pingSlow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Revolving Icons Animations */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinSlowReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes revolve1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(15px, -20px) rotate(90deg);
+  }
+  50% {
+    transform: translate(-10px, -30px) rotate(180deg);
+  }
+  75% {
+    transform: translate(-20px, -10px) rotate(270deg);
+  }
+}
+
+@keyframes revolve2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-18px, 15px) rotate(-90deg);
+  }
+  50% {
+    transform: translate(12px, 25px) rotate(-180deg);
+  }
+  75% {
+    transform: translate(20px, 8px) rotate(-270deg);
+  }
+}
+
+@keyframes revolve3 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(20px, -12px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-15px, -25px) rotate(240deg);
+  }
+}
+
+@keyframes revolve4 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-12px, -18px) rotate(-90deg);
+  }
+  50% {
+    transform: translate(18px, -25px) rotate(-180deg);
+  }
+  75% {
+    transform: translate(8px, -8px) rotate(-270deg);
+  }
+}
+
+@keyframes revolve5 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(12px, 20px) rotate(180deg);
+  }
+}
+
+@keyframes revolve6 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(-20px, 12px) rotate(-120deg);
+  }
+  66% {
+    transform: translate(15px, 25px) rotate(-240deg);
+  }
+}
+
+@keyframes revolve7 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(10px, -15px) rotate(90deg);
+  }
+  50% {
+    transform: translate(-8px, -22px) rotate(180deg);
+  }
+  75% {
+    transform: translate(-15px, -5px) rotate(270deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 8s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: spinSlowReverse 10s linear infinite;
+}
+
+.animate-revolve-1 {
+  animation: revolve1 12s ease-in-out infinite;
+}
+
+.animate-revolve-2 {
+  animation: revolve2 14s ease-in-out infinite;
+}
+
+.animate-revolve-3 {
+  animation: revolve3 16s ease-in-out infinite;
+}
+
+.animate-revolve-4 {
+  animation: revolve4 13s ease-in-out infinite;
+}
+
+.animate-revolve-5 {
+  animation: revolve5 15s ease-in-out infinite;
+}
+
+.animate-revolve-6 {
+  animation: revolve6 17s ease-in-out infinite;
+}
+
+.animate-revolve-7 {
+  animation: revolve7 11s ease-in-out infinite;
+}
+
+.timeline-line-shimmer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 30%;
+  background: linear-gradient(to bottom, transparent 0%, rgba(234, 179, 8, .4) 15%, rgba(234, 179, 8, .8) 35%, rgba(234, 179, 8, 1) 45%, rgba(234, 179, 8, 1) 50%, rgba(234, 179, 8, 1) 55%, rgba(234, 179, 8, .8) 65%, rgba(234, 179, 8, .4) 85%, transparent 100%);
+  border-radius: 2px;
+  filter: blur(.5px);
+  box-shadow: 0 0 8px rgba(234, 179, 8, 0.8), 0 0 16px rgba(234, 179, 8, 0.6);
+  animation: lineShimmer 2s linear infinite;
+  pointer-events: none;
+  z-index: 10;
+  transform: translateX(-50%);
+}
+
