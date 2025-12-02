@@ -72,19 +72,6 @@ const Contact = () => {
       message: formData.message,
     };
 
-    // Console log form data and payload before sending
-    console.log('📧 Contact Form Data:', {
-      fullName: formData.fullName,
-      company: formData.company,
-      email: formData.email,
-      phone: formData.phone,
-      subject: formData.subject,
-      message: formData.message,
-    });
-    console.log('📦 Form Element (e.target):', e.target);
-    console.log('📦 Form Data as Object:', Object.fromEntries(new FormData(e.target)));
-    console.log('📦 Template Params Payload:', templateParams);
-
     try {
       // Send form data as payload using EmailJS
       const response = await emailjs.send(
@@ -92,11 +79,6 @@ const Contact = () => {
         process.env.REACT_APP_EMAILJS_TEMPLATE_ID || "template_pw54fxy",
         templateParams
       );
-
-      // Console log successful response
-      console.log('✅ EmailJS Response:', response);
-      console.log('✅ Status:', response.status);
-      console.log('✅ Text:', response.text);
 
       // Success
       setStatus({ 
@@ -114,13 +96,10 @@ const Contact = () => {
         message: '',
       });
     } catch (err) {
-      // Console log error details
-      console.error('❌ EmailJS Error:', err);
-      console.error('❌ Error Details:', {
-        code: err.code,
-        text: err.text,
-        message: err.message,
-      });
+      // Log error in development mode only
+      if (process.env.NODE_ENV === 'development') {
+        console.error('❌ EmailJS Error:', err);
+      }
 
       // Error
       setStatus({ 

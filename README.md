@@ -56,17 +56,33 @@ src/
 
 ### Installation
 
-1. Install dependencies:
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd AEON
+```
+
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Start the development server:
+3. Set up environment variables (optional):
+   - Create a `.env` file in the root directory
+   - Add the following variables (get these from your EmailJS account):
+```bash
+REACT_APP_EMAILJS_PUBLIC_KEY=your_emailjs_public_key_here
+REACT_APP_EMAILJS_SERVICE_ID=your_emailjs_service_id_here
+REACT_APP_EMAILJS_TEMPLATE_ID=your_emailjs_template_id_here
+```
+   - Note: If environment variables are not set, the app will use default values (hardcoded fallbacks)
+
+4. Start the development server:
 ```bash
 npm start
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ### Build for Production
 
@@ -129,6 +145,52 @@ Scroll animations are handled by the `useScrollAnimation` hook and `initScrollAn
 - Firefox (latest)
 - Safari (latest)
 - Edge (latest)
+
+## Environment Variables
+
+The application uses EmailJS for contact form submissions. To configure EmailJS:
+
+1. Sign up for a free account at [EmailJS](https://www.emailjs.com/)
+2. Create a service, template, and get your public key
+3. Create a `.env` file in the root directory with:
+```bash
+REACT_APP_EMAILJS_PUBLIC_KEY=your_emailjs_public_key_here
+REACT_APP_EMAILJS_SERVICE_ID=your_emailjs_service_id_here
+REACT_APP_EMAILJS_TEMPLATE_ID=your_emailjs_template_id_here
+```
+
+**Note:** If environment variables are not set, the app will use default fallback values. However, it's recommended to use your own EmailJS account for production.
+
+## Deployment
+
+### GitHub Pages
+1. Install `gh-pages` package:
+```bash
+npm install --save-dev gh-pages
+```
+
+2. Add to `package.json`:
+```json
+"homepage": "https://yourusername.github.io/aeon-website",
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+}
+```
+
+3. Deploy:
+```bash
+npm run deploy
+```
+
+### Netlify / Vercel
+1. Connect your GitHub repository
+2. Set build command: `npm run build`
+3. Set publish directory: `build`
+4. Add environment variables in the platform's dashboard
+
+### Other Platforms
+The `build` folder contains the production-ready static files that can be deployed to any static hosting service.
 
 ## License
 
