@@ -48,17 +48,33 @@ const Footer = () => {
                 { href: '#pricing', label: 'Pricing' },
                 { href: '#testimonials', label: 'Testimonials' },
                 { href: '#start', label: 'Get Started' },
-              ].map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-yellow-500 transition-colors duration-300 text-sm flex items-center group"
-                  >
-                    <span className="mr-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              ].map((link) => {
+                const handleClick = (e) => {
+                  e.preventDefault();
+                  const element = document.querySelector(link.href);
+                  if (element) {
+                    const headerOffset = 100;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                  }
+                };
+                return (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      onClick={handleClick}
+                      className="text-gray-400 hover:text-yellow-500 transition-colors duration-300 text-sm flex items-center group"
+                    >
+                      <span className="mr-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                      {link.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -73,20 +89,35 @@ const Footer = () => {
             <ul className="space-y-3">
               {[
                 { href: '#reality', label: 'Task Management' },
-                { href: '#roi', label: 'ROI Calculator' },
                 { href: '#evoke', label: 'Why Choose AEON' },
                 { href: '#contact', label: 'Contact Us' },
-              ].map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-yellow-500 transition-colors duration-300 text-sm flex items-center group"
-                  >
-                    <span className="mr-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              ].map((link) => {
+                const handleClick = (e) => {
+                  e.preventDefault();
+                  const element = document.querySelector(link.href);
+                  if (element) {
+                    const headerOffset = 100;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                  }
+                };
+                return (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      onClick={handleClick}
+                      className="text-gray-400 hover:text-yellow-500 transition-colors duration-300 text-sm flex items-center group"
+                    >
+                      <span className="mr-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                      {link.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -102,6 +133,19 @@ const Footer = () => {
               <li>
                 <a
                   href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.querySelector('#contact');
+                    if (element) {
+                      const headerOffset = 100;
+                      const elementPosition = element.getBoundingClientRect().top;
+                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      });
+                    }
+                  }}
                   className="text-gray-400 hover:text-yellow-500 transition-colors duration-300 text-sm"
                 >
                   Contact Support
@@ -110,6 +154,19 @@ const Footer = () => {
               <li>
                 <a
                   href="#faqs"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.querySelector('#faqs');
+                    if (element) {
+                      const headerOffset = 100;
+                      const elementPosition = element.getBoundingClientRect().top;
+                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      });
+                    }
+                  }}
                   className="text-gray-400 hover:text-yellow-500 transition-colors duration-300 text-sm"
                 >
                   FAQs

@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
+import aeonLogo from '../assets/Aeon_logo.png';
 
 /**
  * Header Component
  * Fixed header with navigation menu and mobile menu functionality
  */
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [headerShadow, setHeaderShadow] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
-  const [headerHeight, setHeaderHeight] = useState(80);
-  const headerRef = React.useRef(null);
+  // State management
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Controls mobile menu visibility
+  const [headerShadow, setHeaderShadow] = useState(false); // Controls header shadow effect
+  const [activeSection, setActiveSection] = useState(''); // Tracks which section is currently in view
+  const [headerHeight, setHeaderHeight] = useState(80); // Stores the header's height for scroll calculations
+  const [isScrolled, setIsScrolled] = useState(false); // Tracks if user has scrolled past header
+  const headerRef = React.useRef(null); // Reference to header element for height calculations
 
   // Toggle mobile menu
   const toggleMenu = () => {
@@ -38,16 +41,23 @@ const Header = () => {
 
   // Handle scroll for header shadow and active section
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+    
     const handleScroll = () => {
-      if (window.scrollY > 10) {
+      const currentScrollY = window.scrollY;
+      
+      // Show second nav bar when scrolled down, hide main header
+      if (currentScrollY > headerHeight) {
+        setIsScrolled(true);
         setHeaderShadow(true);
       } else {
+        setIsScrolled(false);
         setHeaderShadow(false);
       }
 
       // Determine active section based on scroll position
-      const sections = ['reality', 'roi', 'features', 'evoke', 'pricing', 'testimonials', 'start'];
-      const scrollPosition = window.scrollY + 150;
+      const sections = ['meet-aeon', 'capabilities', 'delightful-service', 'pricing', 'testimonials', 'contact'];
+      const scrollPosition = currentScrollY + 150;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = document.getElementById(sections[i]);
@@ -56,12 +66,14 @@ const Header = () => {
           break;
         }
       }
+      
+      lastScrollY = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Check on mount
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [headerHeight]);
 
   // Prevent body scroll when menu is open
   useEffect(() => {
@@ -78,13 +90,20 @@ const Header = () => {
       <header
         ref={headerRef}
         id="header"
-        className="relative z-50 bg-transparent"
+        className={`relative z-50 bg-transparent transition-transform duration-300 ${
+          isScrolled ? '-translate-y-full' : 'translate-y-0'
+        }`}
       >
         <div className="container mx-auto px-6 py-6 md:py-8 flex justify-between items-center">
           <a
             href="/"
-            className="text-2xl font-bold tracking-tighter text-white hover:scale-105 transition-transform duration-300 group"
+            className="flex items-center gap-2 text-2xl font-bold tracking-tighter text-white hover:scale-105 transition-transform duration-300 group"
           >
+            <img
+              src={aeonLogo}
+              alt="EVOKE logo"
+              className="h-12 w-12 md:h-20 md:w-20 rounded-full object-contain"
+            />
             <span className="relative">
               EVOKE
               
@@ -92,23 +111,41 @@ const Header = () => {
             </span>
           </a>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Only visible on medium screens and above */}
           <nav className="hidden md:flex items-center space-x-2 px-4 py-4">
+            {/* Navigation links array - maps to sections on the page */}
             {[
-              { href: '#reality', label: 'Task Management' },
-              { href: '#roi', label: 'ROI' },
-              { href: '#features', label: 'Features' },
-              { href: '#evoke', label: 'Why Choose AEON' },
+              { href: '#meet-aeon', label: 'Meet AEON' },
+              { href: '#capabilities', label: 'Features' },
+              { href: '#delightful-service', label: 'Why Choose AEON' },
               { href: '#pricing', label: 'Pricing' },
               { href: '#testimonials', label: 'Testimonials' },
-              { href: '#start', label: 'Get Started' },
+              { href: '#contact', label: 'Get Started' },
             ].map((item) => {
+              // Extract section ID from href (remove #)
               const sectionId = item.href.replace('#', '');
+              // Check if this section is currently active (in viewport)
               const isActive = activeSection === sectionId;
+              
+              // Handle smooth scroll to section with header offset
+              const handleClick = (e) => {
+                e.preventDefault();
+                const element = document.querySelector(item.href);
+                if (element) {
+                  const headerOffset = 100; // Offset to account for fixed header
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth' // Smooth scroll animation
+                  });
+                }
+              };
               return (
                 <a
                   key={item.href}
                   href={item.href}
+                  onClick={handleClick}
                   className={`nav-link relative px-4 py-2 text-sm font-medium transition-all duration-300 ${
                     isActive
                       ? 'text-yellow-500'
@@ -116,20 +153,37 @@ const Header = () => {
                   }`}
                 >
                   <span className="relative z-10">{item.label}</span>
+                  {/* Active section indicator - yellow underline */}
                   {isActive && (
                     <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-yellow-500 rounded-full"></span>
                   )}
+                  {/* Hover effect - animated underline */}
                   <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-yellow-500/50 rounded-full scale-x-0 hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                 </a>
               );
             })}
           </nav>
 
+          {/* CTA Button - Scrolls to contact form */}
           <a
-            href="#start"
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              const element = document.querySelector('#contact');
+              if (element) {
+                const headerOffset = 100; // Offset for fixed header
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth'
+                });
+              }
+            }}
             className="hidden md:block cta-button relative bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-semibold px-6 py-2 rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300 shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 hover:scale-105 overflow-hidden group"
           >
             <span className="relative z-10">Try AEON Today</span>
+            {/* Hover overlay effect */}
             <span className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
           </a>
 
@@ -176,29 +230,44 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Fixed Blur Ribbon - Below Header */}
+      {/* Fixed Blur Ribbon - Secondary navigation bar that appears when scrolling down */}
+      {/* This ribbon replaces the main header when user scrolls past it */}
       <div
         className={`fixed left-0 right-0 z-40 h-12 md:h-14 transition-all duration-300 flex items-center justify-between ${
-          headerShadow
-            ? 'backdrop-blur-xl shadow-2xl shadow-black/50 border-b border-yellow-500/20 top-0'
-            : 'backdrop-blur-md'
+          isScrolled
+            ? 'backdrop-blur-xl shadow-2xl shadow-black/50 border-b border-yellow-500/20 top-0 opacity-100 translate-y-0'
+            : 'opacity-0 -translate-y-full pointer-events-none'
         }`}
         style={{
-          backgroundColor: 'rgb(255 255 255 / 1%)',
-          ...(headerShadow ? { top: '0px' } : { top: `${headerHeight}px` })
+          backgroundColor: 'rgb(255 255 255 / 1%)', // Semi-transparent white background
         }}
       >
         <div className="container mx-auto px-6 flex items-center justify-between w-full">
+          {/* Brand name in ribbon */}
           <span className="text-white text-sm md:text-base font-medium font-extrabold">
             AEON 
             <span className="text-yellow-500 ml-1"> AI Assistant </span>
-            
           </span>
+          {/* CTA button in ribbon - scrolls to contact form */}
           <a
-            href="#start"
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              const element = document.querySelector('#contact');
+              if (element) {
+                const headerOffset = 100; // Offset for fixed header
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth'
+                });
+              }
+            }}
             className="bg-gradient-to-r from-white to-white text-black font-semibold px-4 py-1.5 md:px-6 md:py-2 rounded-lg  transition-all duration-300 shadow-lg  hover:scale-105 text-sm md:text-base flex items-center gap-2 group"
           >
-            GET Started
+            Try AEON Today
+            {/* Arrow icon with hover animation */}
             <svg
               className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1"
               fill="none"
@@ -227,34 +296,60 @@ const Header = () => {
         <div className="flex-grow">
           <a
             href="/"
-            className="text-2xl font-bold tracking-tighter text-white mb-12 block hover:scale-105 transition-transform duration-300 inline-block"
+            className="flex items-center gap-2 text-2xl font-bold tracking-tighter text-white mb-12 hover:scale-105 transition-transform duration-300 inline-block"
             onClick={closeMenu}
           >
-            EVOKE <span className="text-yellow-500">.</span>
+            <img
+              src={aeonLogo}
+              alt="EVOKE logo"
+              className="h-12 w-12 rounded-full object-contain"
+            />
+            <span>
+              EVOKE <span className="text-yellow-500">.</span>
+            </span>
           </a>
+          {/* Mobile Navigation Links */}
           <nav className="flex flex-col space-y-2">
+            {/* Navigation items with staggered animation delay */}
             {[
-              { href: '#reality', label: 'Task Management' },
-              { href: '#roi', label: 'ROI' },
-              { href: '#features', label: 'Features' },
-              { href: '#evoke', label: 'Why Choose AEON' },
+              { href: '#meet-aeon', label: 'Meet AEON' },
+              { href: '#capabilities', label: 'Features' },
+              { href: '#delightful-service', label: 'Why Choose AEON' },
               { href: '#pricing', label: 'Pricing' },
               { href: '#testimonials', label: 'Testimonials' },
-              { href: '#start', label: 'Get Started' },
+              { href: '#contact', label: 'Get Started' },
             ].map((item, index) => {
+              // Extract section ID from href
               const sectionId = item.href.replace('#', '');
+              // Check if section is active
               const isActive = activeSection === sectionId;
+              
+              // Handle navigation click - closes menu and scrolls to section
+              const handleClick = (e) => {
+                e.preventDefault();
+                closeMenu(); // Close mobile menu
+                const element = document.querySelector(item.href);
+                if (element) {
+                  const headerOffset = 100; // Offset for fixed header
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              };
               return (
                 <a
                   key={item.href}
                   href={item.href}
+                  onClick={handleClick}
                   className={`mobile-menu-link relative px-4 py-3 text-lg rounded-lg transition-all duration-300 ${
                     isActive
                       ? 'text-yellow-500 bg-yellow-500/10 border-l-2 border-yellow-500'
                       : 'text-gray-300 hover:text-yellow-400 hover:bg-white/5'
                   }`}
-                  onClick={closeMenu}
-                  style={{ transitionDelay: `${index * 50}ms` }}
+                  style={{ transitionDelay: `${index * 50}ms` }} // Staggered animation delay
                 >
                   {item.label}
                 </a>
@@ -263,9 +358,22 @@ const Header = () => {
           </nav>
         </div>
         <a
-          href="#start"
+          href="#contact"
+          onClick={(e) => {
+            e.preventDefault();
+            closeMenu();
+            const element = document.querySelector('#contact');
+            if (element) {
+              const headerOffset = 100;
+              const elementPosition = element.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+              });
+            }
+          }}
           className="w-full text-center cta-button bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-semibold px-8 py-3 rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300 shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 hover:scale-105"
-          onClick={closeMenu}
         >
           Try AEON Today
         </a>

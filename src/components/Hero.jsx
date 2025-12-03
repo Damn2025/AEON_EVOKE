@@ -41,8 +41,10 @@ const Hero = () => {
             >
               <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">AEON</span>
               <br />
-              <span className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold text-gray-300 mt-2 block" style={{ fontFamily: "'Rajdhani', sans-serif" }}>
-                Your Dedicated AI Assistant
+              <span className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold text-gray-300 mt-2 block text-center" style={{ fontFamily: "'Rajdhani', sans-serif" }}>
+                Your First Step Towards
+                <br />
+                AI Adoption
               </span>
             </h2>
 
@@ -78,6 +80,19 @@ const Hero = () => {
             <div className="hidden md:flex flex-row animate-on-scroll fade-in-up delay-200 mt-10 items-center justify-center gap-4">
               <a
                 href="#start"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.querySelector('#start');
+                  if (element) {
+                    const headerOffset = 100;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
                 className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-semibold px-6 py-3 md:px-8 md:py-3.5 rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300 shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 hover:scale-105 text-base md:text-lg flex items-center justify-center gap-2 group whitespace-nowrap"
               >
                 GET Started
@@ -98,13 +113,26 @@ const Hero = () => {
               </a>
               <a
                 href="#features"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.querySelector('#features');
+                  if (element) {
+                    const headerOffset = 100;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
                 className="bg-transparent border-2 border-yellow-500/50 text-yellow-400 font-semibold px-6 py-3 md:px-8 md:py-3.5 rounded-lg hover:border-yellow-400 hover:text-yellow-300 hover:bg-yellow-500/10 transition-all duration-300 hover:scale-105 text-base md:text-lg"
               >
                 Know More
               </a>
             </div>
 
-             {/* Badge - Hidden on mobile, shown below orb */}
+             {/* Badge - Hidden on mobile, shown below buttons */}
              <div
               ref={badgeRef}
               className="hidden md:block animate-on-scroll fade-in-up mt-10 inline-block"
@@ -128,6 +156,19 @@ const Hero = () => {
           <div className="animate-on-scroll fade-in-up delay-200 flex items-center justify-center gap-4">
             <a
               href="#start"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.querySelector('#start');
+                if (element) {
+                  const headerOffset = 100;
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
               className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-semibold px-6 py-3 rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300 shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 hover:scale-105 text-base flex items-center justify-center gap-2 group w-full sm:w-auto whitespace-nowrap"
             >
               GET Started
@@ -148,6 +189,19 @@ const Hero = () => {
             </a>
             <a
               href="#features"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.querySelector('#features');
+                if (element) {
+                  const headerOffset = 100;
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
               className="bg-transparent border-2 border-yellow-500/50 text-yellow-400 font-semibold px-3 py-3 rounded-lg hover:border-yellow-400 hover:text-yellow-300 hover:bg-yellow-500/10 transition-all duration-300 hover:scale-105 text-base w-full sm:w-auto text-center"
             >
               Know More

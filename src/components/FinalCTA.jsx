@@ -19,13 +19,39 @@ const FinalCTA = () => {
         </p>
         <div className="mt-10 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
           <a
-            href="#start"
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              const element = document.querySelector('#contact');
+              if (element) {
+                const headerOffset = 100;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth'
+                });
+              }
+            }}
             className="cta-button bg-yellow-500 text-black font-bold py-4 px-8 rounded-lg text-lg hover:bg-yellow-600 glow-effect w-full sm:w-auto"
           >
             Try AEON Today
           </a>
           <a
             href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              const element = document.querySelector('#contact');
+              if (element) {
+                const headerOffset = 100;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth'
+                });
+              }
+            }}
             className="cta-button bg-transparent border-2 border-gray-600 text-gray-200 font-bold py-4 px-8 rounded-lg text-lg hover:bg-gray-800 hover:border-gray-700 w-full sm:w-auto"
           >
             Transform the Way You Work

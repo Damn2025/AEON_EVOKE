@@ -20,6 +20,7 @@ import emailjs from '@emailjs/browser';
 const Contact = () => {
   const titleRef = useScrollAnimation();
   const formRef = useScrollAnimation();
+  // Form state management
   const [formData, setFormData] = useState({
     fullName: '',
     company: '',
@@ -28,9 +29,10 @@ const Contact = () => {
     subject: '',
     message: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [status, setStatus] = useState({ type: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false); // Tracks form submission state
+  const [status, setStatus] = useState({ type: '', message: '' }); // Success/error message state
 
+  // Subject dropdown options
   const subjectOptions = [
     'General Query',
     'Sales Inquiry',
@@ -45,48 +47,52 @@ const Contact = () => {
     emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY || "AWeroNVwYG4aGzG1D");
   }, []);
 
+  // Handle input field changes
   const handleChange = (e) => {
     const { name, value } = e.target;
+    // Update form data with new value
     setFormData(prev => ({
       ...prev,
       [name]: value,
     }));
-    // Clear status when user starts typing
+    // Clear status message when user starts typing
     if (status.message) {
       setStatus({ type: '', message: '' });
     }
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setStatus({ type: '', message: '' });
     
-    // Prepare payload from form data
+    // Prepare EmailJS template parameters from form data
     const templateParams = {
       fullName: formData.fullName,
       email: formData.email,
-      company: formData.company || '',
-      phone: formData.phone || '',
+      company: formData.company || '', // Optional field
+      phone: formData.phone || '', // Optional field
       subject: formData.subject,
       message: formData.message,
     };
 
     try {
-      // Send form data as payload using EmailJS
-      const response = await emailjs.send(
+      // Send email using EmailJS service
+      // Uses environment variables for service and template IDs, with fallback values
+      await emailjs.send(
         process.env.REACT_APP_EMAILJS_SERVICE_ID || "service_1wzzo5z",
         process.env.REACT_APP_EMAILJS_TEMPLATE_ID || "template_pw54fxy",
         templateParams
       );
 
-      // Success
+      // Show success message
       setStatus({ 
         type: 'success', 
         message: 'Message sent successfully! We will get back to you soon.' 
       });
       
-      // Reset form
+      // Reset form to initial state
       setFormData({
         fullName: '',
         company: '',
@@ -96,36 +102,40 @@ const Contact = () => {
         message: '',
       });
     } catch (err) {
-      // Log error in development mode only
+      // Log error in development mode only (prevents console spam in production)
       if (process.env.NODE_ENV === 'development') {
         console.error('❌ EmailJS Error:', err);
       }
 
-      // Error
+      // Show error message to user
       setStatus({ 
         type: 'error', 
         message: 'Failed to send message. Please try again or contact us directly.' 
       });
     } finally {
+      // Always reset submitting state, regardless of success or failure
       setIsSubmitting(false);
     }
   };
 
   return (
     <section id="contact" className="py-20 bg-[#0A0A0A] relative overflow-hidden">
-      {/* Floating revolving icons */}
+      {/* Decorative floating icons - Only visible on large screens */}
+      {/* Mail icon - Top left with slow spin animation */}
       <div className="absolute top-[10%] left-[3%] w-14 h-14 text-yellow-500/50 animate-revolve-1 hidden lg:block pointer-events-none z-0">
         <div className="w-full h-full animate-spin-slow">
           <Mail className="w-full h-full drop-shadow-[0_0_8px_rgba(234,179,8,0.6)]" strokeWidth={1.5} />
         </div>
       </div>
 
+      {/* Message icon - Top right with reverse spin animation */}
       <div className="absolute top-[12%] right-[3%] w-12 h-12 text-yellow-600/50 animate-revolve-2 hidden lg:block pointer-events-none z-0">
         <div className="w-full h-full animate-spin-slow-reverse">
           <MessageSquare className="w-full h-full drop-shadow-[0_0_8px_rgba(234,179,8,0.6)]" strokeWidth={1.5} />
         </div>
       </div>
 
+      {/* Send icon - Bottom left with slow spin animation */}
       <div className="absolute bottom-[10%] left-[4%] w-16 h-16 text-yellow-500/45 animate-revolve-3 hidden lg:block pointer-events-none z-0">
         <div className="w-full h-full animate-spin-slow">
           <Send className="w-full h-full drop-shadow-[0_0_8px_rgba(234,179,8,0.6)]" strokeWidth={1.5} />
@@ -146,7 +156,7 @@ const Contact = () => {
         {/* Contact Form */}
         <div ref={formRef} className="max-w-3xl mx-auto animate-on-scroll fade-in-up delay-200">
           <form id="contact-form" onSubmit={handleSubmit} className="bg-gradient-to-br from-[#121212] via-[#0F0F0F] to-[#121212] border border-gray-800 rounded-2xl p-6 md:p-8 lg:p-10 space-y-6 hover:border-yellow-500/50 transition-all duration-500">
-            {/* Full Name */}
+            {/* Full Name Input - Required field */}
             <div className="group">
               <label htmlFor="fullName" className="flex items-center gap-2 text-gray-300 mb-2 text-sm font-medium" style={{ fontFamily: "'Poppins', sans-serif" }}>
                 <User className="w-4 h-4 text-yellow-500" />
@@ -164,7 +174,7 @@ const Contact = () => {
               />
             </div>
 
-            {/* Company */}
+            {/* Company Input - Optional field */}
             <div className="group">
               <label htmlFor="company" className="flex items-center gap-2 text-gray-300 mb-2 text-sm font-medium" style={{ fontFamily: "'Poppins', sans-serif" }}>
                 <Building className="w-4 h-4 text-yellow-500" />
@@ -181,9 +191,9 @@ const Contact = () => {
               />
             </div>
 
-            {/* Email and Phone Row */}
+            {/* Email and Phone Row - Responsive grid layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Email */}
+              {/* Email Input - Required field */}
               <div className="group">
                 <label htmlFor="email" className="flex items-center gap-2 text-gray-300 mb-2 text-sm font-medium" style={{ fontFamily: "'Poppins', sans-serif" }}>
                   <Mail className="w-4 h-4 text-yellow-500" />
@@ -201,7 +211,7 @@ const Contact = () => {
                 />
               </div>
 
-              {/* Phone */}
+              {/* Phone Input - Optional field */}
               <div className="group">
                 <label htmlFor="phone" className="flex items-center gap-2 text-gray-300 mb-2 text-sm font-medium" style={{ fontFamily: "'Poppins', sans-serif" }}>
                   <Phone className="w-4 h-4 text-yellow-500" />
@@ -219,7 +229,7 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Subject */}
+            {/* Subject Dropdown - Required field */}
             <div className="group">
               <label htmlFor="subject" className="flex items-center gap-2 text-gray-300 mb-2 text-sm font-medium" style={{ fontFamily: "'Poppins', sans-serif" }}>
                 <FileText className="w-4 h-4 text-yellow-500" />
@@ -234,6 +244,7 @@ const Contact = () => {
                 className="w-full px-4 py-3 bg-[#0A0A0A] border border-gray-700 rounded-lg text-white focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all duration-300 appearance-none cursor-pointer"
               >
                 <option value="" disabled className="bg-[#0A0A0A]">Select a subject</option>
+                {/* Map through subject options */}
                 {subjectOptions.map((option) => (
                   <option key={option} value={option} className="bg-[#0A0A0A]">
                     {option}
@@ -242,7 +253,7 @@ const Contact = () => {
               </select>
             </div>
 
-            {/* Message */}
+            {/* Message Textarea - Required field */}
             <div className="group">
               <label htmlFor="message" className="flex items-center gap-2 text-gray-300 mb-2 text-sm font-medium" style={{ fontFamily: "'Poppins', sans-serif" }}>
                 <MessageSquare className="w-4 h-4 text-yellow-500" />
@@ -260,13 +271,14 @@ const Contact = () => {
               />
             </div>
 
-            {/* Status Message */}
+            {/* Status Message - Success or Error feedback */}
             {status.message && (
               <div className={`flex items-center gap-3 p-4 rounded-lg ${
                 status.type === 'success' 
                   ? 'bg-green-500/10 border border-green-500/30 text-green-400' 
                   : 'bg-red-500/10 border border-red-500/30 text-red-400'
               }`}>
+                {/* Success or Error icon */}
                 {status.type === 'success' ? (
                   <CheckCircle className="w-5 h-5 flex-shrink-0" />
                 ) : (
@@ -278,7 +290,7 @@ const Contact = () => {
               </div>
             )}
 
-            {/* Submit Button */}
+            {/* Submit Button - Shows loading state during submission */}
             <div className="pt-4">
               <button
                 type="submit"
@@ -288,6 +300,7 @@ const Contact = () => {
               >
                 {isSubmitting ? (
                   <>
+                    {/* Loading spinner */}
                     <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
                     Sending...
                   </>

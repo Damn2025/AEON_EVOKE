@@ -7,7 +7,6 @@ import TrustedBy from "./TrustedBy";
 import HowAEONWorksPage from "./HowAEONWorksPage";
 import AgentAEONCapabilities from "./AgentAEONCapabilities";
 import DelightfulService from "./DelightfulService";
-import ElevateExperience from "./ElevateExperience";
 import Pricing from "./Pricing";
 import Testimonials from "./Testimonials";
 import FAQs from "./FAQs";
@@ -15,6 +14,7 @@ import Contact from "./Contact";
 import FinalCTA from "./FinalCTA";
 import Footer from "./Footer";
 import FloatingContactButtons from "./FloatingContactButtons";
+import ScrollToTopButton from "./ScrollToTopButton";
 import { initScrollAnimations } from "../utils/animations";
 
 /**
@@ -30,23 +30,29 @@ function Home() {
 
   return (
     <div className="App">
+      {/* Main Navigation Header */}
       <Header />
       <main>
-        <Hero />
-        <MeetAEON />
-        <TrustedBy />
-        <HowAEONWorksPage />
-        <AgentAEONCapabilities />
-        <DelightfulService />
-        <AIAdoption/>
-        <Pricing />
-        <Testimonials />
-        <FAQs />
-        <Contact />
-        <FinalCTA />
+        {/* Landing Page Sections - In order of appearance */}
+        <Hero /> {/* Hero section with main CTA */}
+        <MeetAEON /> {/* Introduction to AEON */}
+        <TrustedBy /> {/* Trust indicators */}
+        <HowAEONWorksPage /> {/* How AEON works explanation */}
+        <AgentAEONCapabilities /> {/* Key features section */}
+        <DelightfulService /> {/* Service highlights */}
+        <AIAdoption/> {/* AI adoption section */}
+        <Pricing /> {/* Pricing plans */}
+        <Testimonials /> {/* Customer testimonials */}
+        <FAQs /> {/* Frequently asked questions */}
+        <Contact /> {/* Contact form */}
+        <FinalCTA /> {/* Final call-to-action */}
       </main>
+      {/* Footer with links and information */}
       <Footer />
+      {/* Floating action buttons (WhatsApp, Phone, Email) */}
       <FloatingContactButtons />
+      {/* Scroll to top button */}
+      <ScrollToTopButton />
     </div>
   );
 }

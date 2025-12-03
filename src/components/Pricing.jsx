@@ -111,6 +111,19 @@ const Pricing = () => {
               </ul>
               <a
                 href="#start"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.querySelector('#start');
+                  if (element) {
+                    const headerOffset = 100;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
                 className={`mt-8 cta-button w-full text-center font-bold py-3 px-6 rounded-lg ${
                   plan.highlighted
                     ? 'bg-yellow-500 text-black hover:bg-yellow-600 glow-effect'
@@ -136,6 +149,19 @@ const Pricing = () => {
           </div>
           <a
             href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              const element = document.querySelector('#contact');
+              if (element) {
+                const headerOffset = 100;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth'
+                });
+              }
+            }}
             className="mt-6 md:mt-0 cta-button bg-transparent border-2 border-gray-600 text-gray-200 font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-800 hover:border-gray-700 flex-shrink-0"
           >
             Contact Sales
