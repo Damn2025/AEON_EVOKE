@@ -28,8 +28,8 @@ const MeetAEON = () => {
       </div>
 
       {/* Text Content Section - Below the image */}
-      <div className="container mx-auto px-6 sm:px-6 md:px-12 mt-12 sm:mt-16 md:mt-20">
-        <div className="text-center max-w-6xl mx-auto">
+      <div className="container mx-auto  px-6 sm:px-6 md:px-12 mt-12 sm:mt-16 md:mt-20">
+        <div className="text-center max-w-6xl mx-auto my-7">
           {/* Main Heading - "Meet AEON — your dedicated AI Assistant" */}
           <h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-tight"

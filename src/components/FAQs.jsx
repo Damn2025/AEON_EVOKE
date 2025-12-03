@@ -5,7 +5,7 @@ import {
   MessageCircleQuestion, 
   ChevronDown,
   FileQuestion,
-  BookOpen,
+  
   Lightbulb,
   Mail,
   UserCheck,
@@ -77,7 +77,7 @@ const FAQs = () => {
 
       <div className="absolute bottom-[10%] left-[4%] w-16 h-16 text-yellow-500/45 animate-revolve-3 hidden lg:block pointer-events-none z-0">
         <div className="w-full h-full animate-spin-slow">
-          <BookOpen className="w-full h-full drop-shadow-[0_0_8px_rgba(234,179,8,0.6)]" strokeWidth={1.5} />
+          <HelpCircle className="w-full h-full drop-shadow-[0_0_8px_rgba(234,179,8,0.6)]" strokeWidth={1.5} />
         </div>
       </div>
 

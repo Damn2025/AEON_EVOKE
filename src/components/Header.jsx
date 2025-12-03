@@ -9,10 +9,10 @@ import aeonLogo from '../assets/Aeon_logo.png';
 const Header = () => {
   // State management
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Controls mobile menu visibility
-  const [headerShadow, setHeaderShadow] = useState(false); // Controls header shadow effect
-  const [activeSection, setActiveSection] = useState(''); // Tracks which section is currently in view
-  const [headerHeight, setHeaderHeight] = useState(80); // Stores the header's height for scroll calculations
-  const [isScrolled, setIsScrolled] = useState(false); // Tracks if user has scrolled past header
+   const [headerShadow, setHeaderShadow] = useState(false); // Controls header shadow effect
+   const [activeSection, setActiveSection] = useState(''); // Tracks which section is currently in view
+   const [headerHeight, setHeaderHeight] = useState(80); // Stores the header's height for scroll calculations
+   const [isScrolled, setIsScrolled] = useState(false); // Tracks if user has scrolled past header
   const headerRef = React.useRef(null); // Reference to header element for height calculations
 
   // Toggle mobile menu
@@ -39,41 +39,7 @@ const Header = () => {
     return () => window.removeEventListener('resize', updateHeaderHeight);
   }, []);
 
-  // Handle scroll for header shadow and active section
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-    
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Show second nav bar when scrolled down, hide main header
-      if (currentScrollY > headerHeight) {
-        setIsScrolled(true);
-        setHeaderShadow(true);
-      } else {
-        setIsScrolled(false);
-        setHeaderShadow(false);
-      }
-
-      // Determine active section based on scroll position
-      const sections = ['meet-aeon', 'capabilities', 'delightful-service', 'pricing', 'testimonials', 'contact'];
-      const scrollPosition = currentScrollY + 150;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i]);
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i]);
-          break;
-        }
-      }
-      
-      lastScrollY = currentScrollY;
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on mount
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [headerHeight]);
+  
 
   // Prevent body scroll when menu is open
   useEffect(() => {
@@ -104,7 +70,7 @@ const Header = () => {
               alt="EVOKE logo"
               className="h-12 w-12 md:h-20 md:w-20 rounded-full object-contain"
             />
-            <span className="relative">
+            <span className="relative" style={{ fontFamily: "'Bahnschrift','Rajdhani', sans-serif" }}>
               EVOKE
               
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-500 group-hover:w-full transition-all duration-300"></span>
@@ -392,4 +358,3 @@ const Header = () => {
 };
 
 export default Header;
-

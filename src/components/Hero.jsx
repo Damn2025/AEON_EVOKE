@@ -79,10 +79,10 @@ const Hero = () => {
             {/* Buttons - Hidden on mobile, flex row for big screens */}
             <div className="hidden md:flex flex-row animate-on-scroll fade-in-up delay-200 mt-10 items-center justify-center gap-4">
               <a
-                href="#start"
+                href="#contact"
                 onClick={(e) => {
                   e.preventDefault();
-                  const element = document.querySelector('#start');
+                  const element = document.querySelector('#contact');
                   if (element) {
                     const headerOffset = 100;
                     const elementPosition = element.getBoundingClientRect().top;
@@ -112,10 +112,10 @@ const Hero = () => {
                 </svg>
               </a>
               <a
-                href="#features"
+                href="#capabilities"
                 onClick={(e) => {
                   e.preventDefault();
-                  const element = document.querySelector('#features');
+                  const element = document.querySelector('#capabilities');
                   if (element) {
                     const headerOffset = 100;
                     const elementPosition = element.getBoundingClientRect().top;

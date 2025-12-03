@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#0A0A0A] border-t border-gray-800/50 py-12 md:py-16">
       <div ref={ref} className="container mx-auto px-6 ">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-8 animate-on-scroll fade-in-up">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-8 animate-on-scroll fade-in-up">
           {/* Company Info */}
           <div className="space-y-4">
             <h3 
@@ -35,7 +35,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="pl-8">
             <h4 
               className="text-white font-semibold mb-4 text-lg"
               style={{ fontFamily: "'Inter', sans-serif" }}
@@ -44,10 +44,10 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3">
               {[
-                { href: '#features', label: 'Features' },
+                { href: '#capabilities', label: 'Features' },
                 { href: '#pricing', label: 'Pricing' },
                 { href: '#testimonials', label: 'Testimonials' },
-                { href: '#start', label: 'Get Started' },
+                { href: '#contact', label: 'Get Started' },
               ].map((link) => {
                 const handleClick = (e) => {
                   e.preventDefault();
@@ -78,7 +78,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Resources */}
+          {/* Resources
           <div>
             <h4 
               className="text-white font-semibold mb-4 text-lg"
@@ -119,7 +119,7 @@ const Footer = () => {
                 );
               })}
             </ul>
-          </div>
+          </div> */}
 
           {/* Contact & Social */}
           <div>
