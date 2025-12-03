@@ -11,10 +11,10 @@ const FinalCTA = () => {
   return (
     <section className="py-20 bg-gradient-to-t from-[#101010] to-[#0A0A0A]">
       <div ref={ref} className="container mx-auto px-6 text-center animate-on-scroll fade-in-up">
-        <h2 className="text-3xl md:text-5xl font-extrabold text-white max-w-3xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white max-w-3xl mx-auto">
           Get Started with <span className="section-title">AEON</span>
         </h2>
-        <p className="mt-6 max-w-xl mx-auto text-lg text-gray-300">
+        <p className="mt-6 max-w-xl mx-auto text-base sm:text-lg text-gray-300">
           Free yourself from repetitive admin. Experience fast, expert, and fun productivity with the sharpest AI executive assistant made for everyone—from small businesses to global teams.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
@@ -63,4 +63,3 @@ const FinalCTA = () => {
 };
 
 export default FinalCTA;
-

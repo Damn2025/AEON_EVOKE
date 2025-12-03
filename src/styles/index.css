@@ -270,6 +270,21 @@ html {
   opacity: 1;
 }
 
+@media (max-width: 768px) {
+  .marquee-content {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .marquee-item {
+    width: auto;
+    padding: 0 1rem;
+  }
+}
+
 /* Pricing Card */
 .pricing-card {
   background: #121212;
@@ -593,4 +608,3 @@ html {
   z-index: 10;
   transform: translateX(-50%);
 }
-

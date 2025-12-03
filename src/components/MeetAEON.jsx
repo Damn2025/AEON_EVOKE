@@ -36,7 +36,7 @@ const MeetAEON = () => {
             style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 800 }}
           >
             {/* Keep heading on one line using whitespace-nowrap */}
-            <span className="whitespace-nowrap inline-block">
+            <span className="inline-block">
               Meet{" "}
               {/* Gradient text effect for "AEON —" */}
               <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">

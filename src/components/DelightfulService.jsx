@@ -54,10 +54,10 @@ const DelightfulService = () => {
     <section id="delightful-service" className="py-24 bg-gradient-to-b from-[#101010] to-[#0A0A0A] overflow-hidden">
       <div className="container mx-auto px-6">
         <div ref={titleRef} className="text-center max-w-3xl mx-auto animate-on-scroll fade-in-up mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>
-             Delightful Service Starts With  <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text itlaic text-transparent">AEON</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>
+             Delightful Service Starts With  <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text italic text-transparent">AEON</span>
           </h2>
-          <p className="text-lg text-gray-400" style={{ fontFamily: "'Poppins', sans-serif" }}>
+          <p className="text-base sm:text-lg text-gray-400" style={{ fontFamily: "'Poppins', sans-serif" }}>
             Every interaction is crafted to exceed expectations
           </p>
         </div>
@@ -89,7 +89,7 @@ const DelightfulService = () => {
           </div>
 
           {/* Right side - Visual element */}
-          <div ref={rightRef} className="animate-on-scroll fade-in-right delay-200 relative">
+          <div ref={rightRef} className="hidden lg:block animate-on-scroll fade-in-right delay-200 relative">
             <div className="relative">
               {/* Animated circles */}
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border-2 border-yellow-500/20 rounded-full animate-pulse"></div>
@@ -121,4 +121,3 @@ const DelightfulService = () => {
 };
 
 export default DelightfulService;
-

@@ -39,7 +39,7 @@ const ScrollToTopButton = () => {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 ${
+      className={`fixed bottom-6 right-4 sm:right-6 z-50 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 ${
         // Conditional classes: Show/hide with fade and slide animation
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
@@ -51,4 +51,3 @@ const ScrollToTopButton = () => {
 };
 
 export default ScrollToTopButton;
-

@@ -229,10 +229,10 @@ const HowAEONWorksPage = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Title Section */}
         <div ref={titleRef} className="text-center max-w-3xl mx-auto animate-on-scroll fade-in-up mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>
             How <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">AEON</span> Works
           </h2>
-          <p className="text-lg text-gray-400" style={{ fontFamily: "'Poppins', sans-serif" }}>
+          <p className="text-base sm:text-lg text-gray-400" style={{ fontFamily: "'Poppins', sans-serif" }}>
             Transform your knowledge base into an intelligent AI assistant in three simple steps
           </p>
         </div>
@@ -293,10 +293,10 @@ const HowAEONWorksPage = () => {
                           {step.number}
                         </div>
 
-                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 group-hover:text-yellow-400 transition-colors duration-300" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-yellow-400 transition-colors duration-300" style={{ fontFamily: "'Outfit', sans-serif" }}>
                           {step.title}
                         </h3>
-                        <p className="text-gray-400 leading-relaxed text-base md:text-lg flex-grow group-hover:text-gray-300 transition-colors duration-300" style={{ fontFamily: "'Poppins', sans-serif" }}>
+                        <p className="text-gray-400 leading-relaxed text-base flex-grow group-hover:text-gray-300 transition-colors duration-300" style={{ fontFamily: "'Poppins', sans-serif" }}>
                           {step.description}
                         </p>
                       </div>
@@ -314,4 +314,3 @@ const HowAEONWorksPage = () => {
 };
 
 export default HowAEONWorksPage;
-
