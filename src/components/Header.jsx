@@ -9,10 +9,9 @@ import aeonLogo from '../assets/Aeon_logo.png';
 const Header = () => {
   // State management
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Controls mobile menu visibility
-   const [headerShadow, setHeaderShadow] = useState(false); // Controls header shadow effect
-   const [activeSection, setActiveSection] = useState(''); // Tracks which section is currently in view
-   const [headerHeight, setHeaderHeight] = useState(80); // Stores the header's height for scroll calculations
-   const [isScrolled, setIsScrolled] = useState(false); // Tracks if user has scrolled past header
+  const [activeSection, setActiveSection] = useState(''); // Tracks which section is currently in view
+  const [headerHeight, setHeaderHeight] = useState(80); // Stores the header's height for scroll calculations
+  const [isScrolled, setIsScrolled] = useState(false); // Tracks if user has scrolled past header
   const headerRef = React.useRef(null); // Reference to header element for height calculations
 
   // Toggle mobile menu
@@ -39,7 +38,38 @@ const Header = () => {
     return () => window.removeEventListener('resize', updateHeaderHeight);
   }, []);
 
-  
+  // Handle scroll effects for header visibility and active section highlighting
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if user has scrolled past the header
+      setIsScrolled(window.scrollY > headerHeight);
+
+      // Find the currently active section
+      const sections = document.querySelectorAll('section[id]');
+      let currentSection = '';
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (window.scrollY >= sectionTop - headerHeight - 20) { // Adjusted offset for better accuracy
+          currentSection = section.getAttribute('id');
+        }
+      });
+
+      if (currentSection !== activeSection) {
+        setActiveSection(currentSection);
+      }
+    };
+
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Initial check
+    handleScroll();
+
+    // Clean up listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [headerHeight, activeSection]);
 
   // Prevent body scroll when menu is open
   useEffect(() => {
