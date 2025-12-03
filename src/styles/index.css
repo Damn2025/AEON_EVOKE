@@ -272,8 +272,8 @@ html {
 
 @media (max-width: 768px) {
   .marquee-content {
-    animation: none;
-    flex-wrap: wrap;
+    
+   
     justify-content: center;
     width: 100%;
     gap: 1rem;

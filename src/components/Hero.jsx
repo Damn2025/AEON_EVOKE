@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-[#0A0A0A] via-[#101010] to-[#0A0A0A] overflow-hidden  md:py-32">
       {/* Orb Background */}
-      <div className="w-full h-[400px] md:h-[700px] lg:h-[950px] absolute top-[45%] md:top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-0">
+      <div className="w-full h-[400px] md:h-[500px] lg:h-[650px] absolute top-[45%] md:top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-0">
         <Orb
           hoverIntensity={0.5}
           rotateOnHover={true}
@@ -41,7 +41,7 @@ const Hero = () => {
             >
               <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">AEON</span>
               <br />
-              <span className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold text-gray-300 mt-2 block text-center" style={{ fontFamily: "'Rajdhani', sans-serif" }}>
+              <span className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-semibold text-gray-300 mt-2 block text-center" style={{ fontFamily: "'Rajdhani', sans-serif" }}>
                 Your First Step Towards
                 <br />
                 AI Adoption
@@ -93,7 +93,7 @@ const Hero = () => {
                     });
                   }
                 }}
-                className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-semibold px-6 py-3 md:px-8 md:py-3.5 rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300 shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 hover:scale-105 text-base md:text-lg flex items-center justify-center gap-2 group whitespace-nowrap"
+                className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-semibold px-6 py-3 md:px-8 md:py-3.5 rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300 shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 hover:scale-105 text-base flex items-center justify-center gap-2 group whitespace-nowrap"
               >
                 GET Started
                 <svg
@@ -126,7 +126,7 @@ const Hero = () => {
                     });
                   }
                 }}
-                className="bg-transparent border-2 border-yellow-500/50 text-yellow-400 font-semibold px-6 py-3 md:px-8 md:py-3.5 rounded-lg hover:border-yellow-400 hover:text-yellow-300 hover:bg-yellow-500/10 transition-all duration-300 hover:scale-105 text-base md:text-lg"
+                className="bg-transparent border-2 border-yellow-500/50 text-yellow-400 font-semibold px-6 py-3 md:px-8 md:py-3.5 rounded-lg hover:border-yellow-400 hover:text-yellow-300 hover:bg-yellow-500/10 transition-all duration-300 hover:scale-105 text-base"
               >
                 Know More
               </a>
@@ -223,4 +223,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
