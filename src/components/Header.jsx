@@ -90,7 +90,7 @@ const Header = () => {
           isScrolled ? '-translate-y-full' : 'translate-y-0'
         }`}
       >
-        <div className="container mx-auto px-6 py-6 md:py-8 flex justify-between items-center">
+        <div className="container mx-auto px-6 flex justify-between items-center">
           <a
             href="/"
             className="flex items-center gap-2 text-2xl font-bold tracking-tighter text-white hover:scale-105 transition-transform duration-300 group"
