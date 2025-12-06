@@ -8,6 +8,7 @@ import HowAEONWorksPage from "./HowAEONWorksPage";
 import AgentAEONCapabilities from "./AgentAEONCapabilities";
 import DelightfulService from "./DelightfulService";
 import Pricing from "./Pricing";
+import PricingSection from "./PricingSection";
 import Testimonials from "./Testimonials";
 import FAQs from "./FAQs";
 import Contact from "./Contact";
@@ -41,7 +42,7 @@ function Home() {
         <AgentAEONCapabilities /> {/* Key features section */}
         <DelightfulService /> {/* Service highlights */}
         <AIAdoption/> {/* AI adoption section */}
-        <Pricing /> {/* Pricing plans */}
+        <PricingSection /> {/* Pricing plans */}
         <Testimonials /> {/* Customer testimonials */}
         <FAQs /> {/* Frequently asked questions */}
         <Contact /> {/* Contact form */}
