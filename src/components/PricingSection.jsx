@@ -34,11 +34,12 @@ export default function PricingSection() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] py-20 px-4">
       <div className="max-w-6xl mx-auto text-center mb-14">
-        <h2 className="text-4xl font-bold mb-4 text-white">Flexible Pricing — Built Around Your Needs</h2>
-        <p className="text-gray-400 max-w-2xl mx-auto">
-          Since we don’t offer SaaS, there are no monthly subscriptions. Every project is
-          individually priced based on your chatbot’s requirements.
-        </p>
+      <h2 className="text-3xl md:text-4xl font-bold text-white">
+            Find the <span className="section-title">Perfect Plan</span>
+          </h2>
+          <p className="mt-4 text-gray-400">
+             Choose the AEON intelligence layer your business needs — tailored to support your goals, your workflows, and your customers.
+          </p>
       </div>
 
       <motion.div
