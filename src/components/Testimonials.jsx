@@ -44,7 +44,7 @@ const Testimonials = () => {
       <div className="container mx-auto px-6">
         <div ref={titleRef} className="text-center max-w-3xl mx-auto animate-on-scroll fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Don't Just Take Our Word For It
+            Don't Just Take  <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">Our Word For It</span>
           </h2>
           <p className="mt-4 text-gray-400">
             See how AEON is driving real results for visionary teams.

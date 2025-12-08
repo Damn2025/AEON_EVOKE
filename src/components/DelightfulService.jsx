@@ -55,7 +55,7 @@ const DelightfulService = () => {
       <div className="container mx-auto px-6">
         <div ref={titleRef} className="text-center max-w-3xl mx-auto animate-on-scroll fade-in-up mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>
-             Delightful Service Starts With  <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text italic text-transparent">AEON</span>
+             Delightful Service Starts With  <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text  text-transparent">AEON</span>
           </h2>
           <p className="text-base sm:text-lg text-gray-400" style={{ fontFamily: "'Poppins', sans-serif" }}>
             Every interaction is crafted to exceed expectations

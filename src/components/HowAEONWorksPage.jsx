@@ -126,7 +126,7 @@ const HowAEONWorksPage = () => {
   );
 
   return (
-    <section id="how-aeon-works-page" className="py-20 bg-[#0A0A0A] relative overflow-hidden">
+    <section id="working" className="py-20 bg-[#0A0A0A] relative overflow-hidden">
       {/* Floating revolving icons - positioned relative to section */}
       {/* Upload icon - Top left corner */}
       <div className="absolute top-[10%] left-[3%] w-14 h-14 text-yellow-500/50 animate-revolve-1 hidden lg:block pointer-events-none z-0">

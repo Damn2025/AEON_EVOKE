@@ -63,7 +63,7 @@ const MeetAEON = () => {
             Powered by{" "}
             {/* Highlighted "EVOKE" with gradient */}
             <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent font-bold">
-              EVOKE
+              EVOKE AI
             </span>
             , AEON transforms your knowledge base into an intelligent assistant that engages customers,
             captures qualified leads, and automates responses with precision. It turns everyday interactions

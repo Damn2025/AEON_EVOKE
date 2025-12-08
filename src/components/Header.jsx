@@ -101,7 +101,7 @@ const Header = () => {
               className="h-12 w-12 md:h-20 md:w-20 rounded-full object-contain"
             />
             <span className="relative" style={{ fontFamily: "'Bahnschrift','Rajdhani', sans-serif" }}>
-              EVOKE
+              EVOKE AI
               
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-500 group-hover:w-full transition-all duration-300"></span>
             </span>
@@ -112,9 +112,10 @@ const Header = () => {
             {/* Navigation links array - maps to sections on the page */}
             {[
               { href: '#meet-aeon', label: 'Meet AEON' },
+               { href: '#working', label: ' Working' },
               { href: '#capabilities', label: 'Features' },
               { href: '#delightful-service', label: 'Why Choose AEON' },
-              { href: '#pricing', label: 'Pricing' },
+              { href: '#pricingSection', label: 'Pricing' },
               { href: '#testimonials', label: 'Testimonials' },
               { href: '#contact', label: 'Get Started' },
             ].map((item) => {

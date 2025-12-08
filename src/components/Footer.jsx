@@ -29,7 +29,7 @@ const Footer = () => {
             <div className="pt-2">
               <span className="text-gray-500 text-sm">
                 Powered by{' '}
-                <span className="text-yellow-500 font-semibold">EVOKE</span>
+                <span className="text-yellow-500 font-semibold">EVOKE AI</span>
               </span>
             </div>
           </div>
@@ -43,10 +43,12 @@ const Footer = () => {
               Quick Links
             </h4>
             <ul className="space-y-3">
-              {[
-                { href: '#capabilities', label: 'Features' },
-                { href: '#pricing', label: 'Pricing' },
+              {[ { href: '#meet-aeon', label: 'Meet AEON' },
+                { href: '#working', label: 'How AEON Works' },
+                { href: '#delightful-service', label: 'Why Choose AEON' },
+                { href: '#pricingSection', label: 'Pricing' },
                 { href: '#testimonials', label: 'Testimonials' },
+                { href: '#faqs', label: 'FAQs' },
                 { href: '#contact', label: 'Get Started' },
               ].map((link) => {
                 const handleClick = (e) => {
@@ -303,7 +305,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-500 text-sm">
               © {new Date().getFullYear()} {' '}
-              <span className="text-yellow-500 font-semibold">EVOKE</span>. All rights reserved.
+              <span className="text-yellow-500 font-semibold">EVOKE AI</span>. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-6 text-sm">
               <Link to="/privacy-policy" className="text-gray-500 hover:text-yellow-500 transition-colors duration-300">
