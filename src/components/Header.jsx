@@ -178,7 +178,7 @@ const Header = () => {
             }}
             className="hidden md:block cta-button relative bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-semibold px-6 py-2 rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300 shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 hover:scale-105 overflow-hidden group"
           >
-            <span className="relative z-10">Try AEON Today</span>
+            <span className="relative z-10">Connect to AEON</span>
             {/* Hover overlay effect */}
             <span className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
           </a>
@@ -262,7 +262,7 @@ const Header = () => {
             }}
             className="bg-gradient-to-r from-white to-white text-black font-semibold px-4 py-1.5 md:px-6 md:py-2 rounded-lg  transition-all duration-300 shadow-lg  hover:scale-105 text-sm md:text-base flex items-center gap-2 group"
           >
-            Try AEON Today
+            Connect to AEON
             {/* Arrow icon with hover animation */}
             <svg
               className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1"
@@ -371,7 +371,7 @@ const Header = () => {
           }}
           className="w-full text-center cta-button bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-semibold px-8 py-3 rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300 shadow-lg shadow-yellow-500/30 hover:shadow-yellow-500/50 hover:scale-105"
         >
-          Try AEON Today
+          Connect to AEON
         </a>
       </div>
 

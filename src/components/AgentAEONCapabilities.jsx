@@ -1,10 +1,11 @@
 import React from 'react';
 import { useScrollAnimation } from '../utils/useScrollAnimation';
 import proactiveEngagementImage from '../assets/Engagement.jpg';
-import MultiLanguage from '../assets/MultiLingual.png';
+import MultiLanguage from '../assets/Multilingualchat.png';
+import Uploading from '../assets/uploading2.png';
 
 import DeployImage from '../assets/Deploy3.png';
-import UploadImage from '../assets/Upload.png';
+// import UploadImage from '../assets/Upload.png';
 import Customer from '../assets/Customerss.png'
 
 /**
@@ -38,8 +39,8 @@ const AgentAEONCapabilities = () => {
     },
     {
       title: 'Powered by Your Knowledge',
-      description: 'AEON is trained on your documents, URLs, FAQs, and product data, delivering responses that are always accurate, updated, and aligned with your brand messaging.',
-      image: UploadImage,
+      description: 'AEON is trained on your uploaded documents (DOCX, PDF), URLs, FAQs, and product data, delivering responses that are always accurate, updated, and aligned with your brand messaging. Simply upload your files and let AEON learn from your content.',
+      image: Uploading,
     },
     // {
     //   title: 'Instant Checkout in Chat',
@@ -74,17 +75,17 @@ const AgentAEONCapabilities = () => {
               >
                 <div className="flex flex-col rounded-2xl overflow-hidden border border-gray-800 hover:border-yellow-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-yellow-500/20 bg-[#1A1A1A]">
                   {/* Content Section - Top */}
-                  <div className="p-8 flex-1">
-                    <h3 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                  <div className="p-4 sm:p-6 md:p-8 flex-1">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>
                       {capability.title}
                     </h3>
-                    <p className="text-gray-300 leading-relaxed text-base" style={{ fontFamily: "'Poppins', sans-serif" }}>
+                    <p className="text-gray-300 leading-relaxed text-sm sm:text-base" style={{ fontFamily: "'Poppins', sans-serif" }}>
                       {capability.description}
                     </p>
                   </div>
 
                   {/* Image Section - Bottom */}
-                  <div className="relative h-[350px] overflow-hidden">
+                  <div className="relative h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] overflow-hidden">
                     <img 
                       src={capability.image} 
                       alt={capability.title}
@@ -107,21 +108,21 @@ const AgentAEONCapabilities = () => {
         >
           <div className="flex flex-col lg:flex-row rounded-2xl overflow-hidden border border-gray-800 hover:border-yellow-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-yellow-500/20 bg-[#1A1A1A]">
             {/* Content Section - Left */}
-            <div className="flex-1 p-8 lg:p-12 flex flex-col justify-center">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>
+            <div className="flex-1 p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-center">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>
                 Instant Checkout in Chat
               </h3>
-              <p className="text-gray-300 leading-relaxed text-base" style={{ fontFamily: "'Poppins', sans-serif" }}>
+              <p className="text-gray-300 leading-relaxed text-sm sm:text-base" style={{ fontFamily: "'Poppins', sans-serif" }}>
                 Accept payments directly inside the chat to close sales the moment customers are ready to buy. Remove extra steps, reduce drop-offs, and turn your conversations into instant conversions with a smooth, secure in-chat checkout experience.
               </p>
             </div>
 
             {/* Image Section - Right */}
-            <div className="relative w-full lg:w-1/2 h-[350px] lg:h-auto overflow-hidden">
+            <div className="relative w-full lg:w-1/2 h-[200px] sm:h-[250px] md:h-[300px] lg:h-auto overflow-hidden">
               <img 
                 src={Customer} 
                 alt="Instant Checkout in Chat"
-                className="w-full  object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
               {/* Optional overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>

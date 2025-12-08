@@ -57,9 +57,9 @@ const HowAEONWorksPage = () => {
 
   // FileTypeVisualization Component
   const FileTypeVisualization = () => (
-    <div className="relative w-full h-full flex items-center justify-center  p-8 min-h-[400px]">
+    <div className="relative w-full h-full flex items-center justify-center p-4 sm:p-6 md:p-8 min-h-[200px] sm:min-h-[250px] md:min-h-[300px] lg:min-h-[400px]">
       {/* File extensions positioned around center */}
-      <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-2 p-4 md:p-8">
+      <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-1 sm:gap-2 p-2 sm:p-4 md:p-8">
         {/* Top row */}
         <div className="col-start-1 row-start-1 flex items-center justify-center">
           <div className="px-3 py-1.5 md:px-4 md:py-2 rounded-lg bg-[#121212] border border-yellow-500/50 backdrop-blur-sm text-white text-xs md:text-sm font-medium shadow-lg shadow-yellow-500/20 hover:shadow-yellow-500/40 hover:border-yellow-500 transition-all duration-300">
@@ -110,14 +110,14 @@ const HowAEONWorksPage = () => {
       </div>
 
       {/* Central document icon with download */}
-      <div className="relative z-10 flex flex-col items-center justify-center">
+      <div className="relative z-10 flex flex-col items-center justify-center  ">
         <div className="relative">
           {/* Document icon */}
-          <div className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 text-yellow-500/80">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 lg:w-40 lg:h-40 text-yellow-500/80">
             <File className="w-full h-full drop-shadow-[0_0_8px_rgba(234,179,8,0.6)]" strokeWidth={1.5} />
           </div>
           {/* Download icon overlay */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16 text-yellow-400">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 lg:w-16 lg:h-16 text-yellow-400">
             <Download className="w-full h-full drop-shadow-[0_0_8px_rgba(234,179,8,0.6)]" strokeWidth={2} />
           </div>
         </div>
@@ -259,9 +259,9 @@ const HowAEONWorksPage = () => {
                     transitionDelay: `${(index + 1) * 100}ms`,
                   }}
                 >
-                  <div className="flex flex-col md:flex-row items-stretch h-full transform transition-all duration-500 gap-0 overflow-hidden rounded-2xl border border-gray-800 hover:border-yellow-500/70 transition-all duration-500 hover:shadow-2xl hover:shadow-yellow-500/30 bg-gradient-to-br from-[#121212] via-[#0F0F0F] to-[#121212]">
+                  <div className="flex flex-col md:flex-row p-2 sm:p-4 md:p-6 lg:p-8 items-stretch h-full transform transition-all duration-500 gap-0 overflow-hidden rounded-2xl border border-gray-800 hover:border-yellow-500/70 transition-all duration-500 hover:shadow-2xl hover:shadow-yellow-500/30 bg-gradient-to-br from-[#121212] via-[#0F0F0F] to-[#121212]">
                     {/* Image Section - Full Size */}
-                    <div className={`relative w-full md:w-1/2 h-64 md:h-auto overflow-hidden ${isEven ? 'md:order-2' : 'md:order-1'}`}>
+                    <div className={`relative w-full md:w-1/2 h-[300px] sm:h-[300px] md:h-[300px] lg:h-auto overflow-hidden ${isEven ? 'md:order-2' : 'md:order-1'}`}>
                       {index === 0 ? (
                         // Custom file type visualization for first step
                         <FileTypeVisualization />
@@ -280,7 +280,7 @@ const HowAEONWorksPage = () => {
                     </div>
 
                     {/* Content Section */}
-                    <div className="relative w-full md:w-1/2 p-6 md:p-8 lg:p-12 flex flex-col justify-center">
+                    <div className="relative w-full md:w-1/2 p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-center">
                       {/* Gradient overlay on hover */}
                       {/* <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-transparent to-yellow-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div> */}
                       
@@ -293,10 +293,10 @@ const HowAEONWorksPage = () => {
                           {step.number}
                         </div>
 
-                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-yellow-400 transition-colors duration-300" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4 group-hover:text-yellow-400 transition-colors duration-300" style={{ fontFamily: "'Outfit', sans-serif" }}>
                           {step.title}
                         </h3>
-                        <p className="text-gray-400 leading-relaxed text-base flex-grow group-hover:text-gray-300 transition-colors duration-300" style={{ fontFamily: "'Poppins', sans-serif" }}>
+                        <p className="text-gray-400 leading-relaxed text-sm sm:text-base flex-grow group-hover:text-gray-300 transition-colors duration-300" style={{ fontFamily: "'Poppins', sans-serif" }}>
                           {step.description}
                         </p>
                       </div>

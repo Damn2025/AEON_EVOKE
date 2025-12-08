@@ -34,10 +34,10 @@ export default function PricingSection() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] py-20 px-4">
       <div className="max-w-6xl mx-auto text-center mb-14">
-      <h2 className="text-3xl md:text-4xl font-bold text-white">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 "style={{ fontFamily: "'Outfit', sans-serif" }}>
             Find the <span className="section-title">Perfect Plan</span>
           </h2>
-          <p className="mt-4 text-gray-400">
+          <p className="mt-4 text-gray-400 text-base sm:text-lg "style={{ fontFamily: "'Poppins', sans-serif" }}>
              Choose the AEON intelligence layer your business needs — tailored to support your goals, your workflows, and your customers.
           </p>
       </div>
