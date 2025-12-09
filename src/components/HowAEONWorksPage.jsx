@@ -259,7 +259,7 @@ const HowAEONWorksPage = () => {
                     transitionDelay: `${(index + 1) * 100}ms`,
                   }}
                 >
-                  <div className="flex flex-col md:flex-row p-2 sm:p-4 md:p-6 lg:p-8 items-stretch h-full transform transition-all duration-500 gap-0 overflow-hidden rounded-2xl border border-gray-800 hover:border-yellow-500/70 transition-all duration-500 hover:shadow-2xl hover:shadow-yellow-500/30 bg-gradient-to-br from-[#121212] via-[#0F0F0F] to-[#121212]">
+                  <div className="relative flex flex-col md:flex-row p-2 sm:p-4 md:p-6 lg:p-8 items-stretch h-full transform transition-all duration-500 gap-0 overflow-hidden rounded-2xl border border-gray-800 hover:border-yellow-500/70 transition-all duration-500 hover:shadow-2xl hover:shadow-yellow-500/30 bg-gradient-to-br from-[#121212] via-[#0F0F0F] to-[#121212]">
                     {/* Image Section - Full Size */}
                     <div className={`relative w-full md:w-1/2 h-[300px] sm:h-[300px] md:h-[300px] lg:h-auto overflow-hidden ${isEven ? 'md:order-2' : 'md:order-1'}`}>
                       {index === 0 ? (
@@ -278,6 +278,9 @@ const HowAEONWorksPage = () => {
                         </>
                       )}
                     </div>
+
+                    {/* Vertical Golden Line Separator */}
+                    <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-0.5 h-3/4 bg-gradient-to-b from-yellow-500 via-yellow-400 to-yellow-500 z-10"></div>
 
                     {/* Content Section */}
                     <div className="relative w-full md:w-1/2 p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-center">
