@@ -1,6 +1,8 @@
 import React from 'react';
 import { useScrollAnimation } from '../utils/useScrollAnimation';
-import evokeLogo from '../assets/evoke.png';
+import AstroremedisLogo from '../assets/Astroremedis.png';
+import EduonixLogo from '../assets/eduonix.png';
+import SipconLogo from '../assets/Sipcon.jpg';
 import damnartLogo from '../assets/Damnart.png';
 import eurocertLogo from '../assets/eurocert.webp';
 import itcLogo from '../assets/itc.png';
@@ -15,12 +17,14 @@ const TrustedBy = () => {
   const ref = useScrollAnimation();
 
   const companies = [
-    { name: 'evoke', logo: evokeLogo, displayName: 'Evoke' },
     { name: 'Damnart', logo: damnartLogo, displayName: 'Damnart' },
     { name: 'Eurocert', logo: eurocertLogo, displayName: 'Eurocert' },
     { name: 'ITC India', logo: itcLogo, displayName: 'ITC India' },
     { name: 'Sustainable Futures Trainings', logo: sustainableLogo, displayName: 'Sustainable Futures Trainings' },
     { name: 'Grnata', logo: grnataLogo, displayName: 'Grnata' },
+    {name:'Sipcon', logo: SipconLogo, displayName:'Sipcon'},
+    {name:'Astroremedis', logo: AstroremedisLogo, displayName:'Astroremedis'},
+    {name:'Eduonix', logo: EduonixLogo, displayName:'Eduonix'}
 
   ];
 
