@@ -13,7 +13,7 @@ const AIAdoption = () => {
       <div ref={sectionRef} className="container mx-auto px-6 animate-on-scroll fade-in-up">
         <div className="text-center max-w-5xl mx-auto">
           <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6" style={{ fontFamily: "'Outfit', sans-serif" }}>
-            Start With a Chatbot, Accelerate Your <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text italic text-transparent">AI Adoption.</span>  
+            Start With a Chatbot, Accelerate Your <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text  text-transparent">AI Adoption.</span>  
           </h2>
           <p className="text-lg sm:text-xl text-gray-400 leading-relaxed" style={{ fontFamily: "'Poppins', sans-serif" }}>
           AI adoption doesn’t have to be complex — you simply start with a smart chatbot that handles customer queries and captures leads 24/7.
