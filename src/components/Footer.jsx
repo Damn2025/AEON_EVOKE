@@ -182,79 +182,43 @@ const Footer = () => {
               }}
             >
               <ul className="p-4 flex flex-row gap-4 items-center justify-center">
-                {/* Facebook */}
+                {/* LinkedIn */}
                 <li className="relative cursor-pointer group iso-pro-item">
-                  <span className="absolute opacity-0 group-hover:opacity-20 transition-all duration-300 rounded-full h-[60px] w-[60px] border border-[#1877f2]"
+                  <span className="absolute opacity-0 group-hover:opacity-20 transition-all duration-300 rounded-full h-[60px] w-[60px] border border-[#0A66C2]"
                     style={{
                       boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.3), inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164)'
                     }}
                   />
-                  <span className="absolute opacity-0 group-hover:opacity-40 group-hover:translate-x-[5px] group-hover:-translate-y-[5px] transition-all duration-300 rounded-full h-[60px] w-[60px] border border-[#1877f2]"
+                  <span className="absolute opacity-0 group-hover:opacity-40 group-hover:translate-x-[5px] group-hover:-translate-y-[5px] transition-all duration-300 rounded-full h-[60px] w-[60px] border border-[#0A66C2]"
                     style={{
                       boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.3), inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164)'
                     }}
                   />
-                  <span className="absolute opacity-0 group-hover:opacity-60 group-hover:translate-x-[10px] group-hover:-translate-y-[10px] transition-all duration-300 rounded-full h-[60px] w-[60px] border border-[#1877f2]"
+                  <span className="absolute opacity-0 group-hover:opacity-60 group-hover:translate-x-[10px] group-hover:-translate-y-[10px] transition-all duration-300 rounded-full h-[60px] w-[60px] border border-[#0A66C2]"
                     style={{
                       boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.3), inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164)'
                     }}
                   />
-                  <button type="button" aria-label="Visit our Facebook page" className="block border-none bg-transparent p-0 cursor-pointer">
+                  <button type="button" aria-label="Visit our LinkedIn page" className="block border-none bg-transparent p-0 cursor-pointer"
+                    onClick={() => window.open('https://www.linkedin.com/company/ai-evoke/?viewAsMember=true', '_blank', 'noopener,noreferrer')}
+                  >
                     <svg 
-                      viewBox="0 0 320 512" 
+                      viewBox="0 0 448 512" 
                       xmlns="http://www.w3.org/2000/svg" 
                       className="transition-all duration-300 p-4 h-[60px] w-[60px] rounded-full text-[#FFAE00] fill-current group-hover:translate-x-[5px] group-hover:-translate-y-[5px]"
                       style={{
                         boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.3), inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164)'
                       }}
                     >
-                      <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+                      <path d="M100.28 448H7.4V148.9h92.88zm-46.44-340.7C24.12 107.3 0 83.16 0 53.64A53.64 53.64 0 0 1 53.84 0C83.36 0 107.5 24.12 107.5 53.64c0 29.52-24.14 53.66-53.66 53.66zM447.9 448h-92.68V302.4c0-34.7-12.4-58.4-43.44-58.4-23.7 0-37.8 15.9-44 31.3-2.3 5.6-2.8 13.5-2.8 21.4V448h-92.8s1.2-241.1 0-266.1h92.8v37.7c-0.2 0.3-0.5 0.7-0.7 1h0.7v-1c12.3-19 34.3-46.1 83.5-46.1 60.9 0 106.6 39.8 106.6 125.4V448z" />
                     </svg>
                   </button>
-                  <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 opacity-0 group-hover:opacity-100 rounded-[5px] px-2 py-1 transition-all duration-300 text-[#FFAE00] bg-white/30 z-[9999] group-hover:translate-y-[5px] group-hover:skew-x-[-5deg] whitespace-nowrap text-sm"
+                  <div className="absolute left=1/2 -translate-x-1/2 top-full mt-2 opacity-0 group-hover:opacity-100 rounded-[5px] px-2 py-1 transition-all duration-300 text-[#FFAE00] bg-white/30 z-[9999] group-hover:translate-y-[5px] group-hover:skew-x-[-5deg] whitespace-nowrap text-sm"
                     style={{
                       boxShadow: '-5px 0 1px rgba(153, 153, 153, 0.2), -10px 0 1px rgba(153, 153, 153, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.3), inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.082)'
                     }}
                   >
-                    Facebook
-                  </div>
-                </li>
-
-                {/* Twitter */}
-                <li className="relative cursor-pointer group iso-pro-item">
-                  <span className="absolute opacity-0 group-hover:opacity-20 transition-all duration-300 rounded-full h-[60px] w-[60px] border border-[#1DA1F2]"
-                    style={{
-                      boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.3), inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164)'
-                    }}
-                  />
-                  <span className="absolute opacity-0 group-hover:opacity-40 group-hover:translate-x-[5px] group-hover:-translate-y-[5px] transition-all duration-300 rounded-full h-[60px] w-[60px] border border-[#1DA1F2]"
-                    style={{
-                      boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.3), inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164)'
-                    }}
-                  />
-                  <span className="absolute opacity-0 group-hover:opacity-60 group-hover:translate-x-[10px] group-hover:-translate-y-[10px] transition-all duration-300 rounded-full h-[60px] w-[60px] border border-[#1DA1F2]"
-                    style={{
-                      boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.3), inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164)'
-                    }}
-                  />
-                  <button type="button" aria-label="Visit our Twitter page" className="block border-none bg-transparent p-0 cursor-pointer">
-                    <svg 
-                      className="transition-all duration-300 p-4 h-[60px] w-[60px] rounded-full text-[#FFAE00] fill-current group-hover:translate-x-[5px] group-hover:-translate-y-[5px]" 
-                      xmlns="http://www.w3.org/2000/svg" 
-                      viewBox="0 0 512 512"
-                      style={{
-                        boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.3), inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164)'
-                      }}
-                    >
-                      <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
-                    </svg>
-                  </button>
-                  <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 opacity-0 group-hover:opacity-100 rounded-[5px] px-2 py-1 transition-all duration-300 text-[#FFAE00] bg-white/30 z-[9999] group-hover:translate-y-[5px] group-hover:skew-x-[-5deg] whitespace-nowrap text-sm"
-                    style={{
-                      boxShadow: '-5px 0 1px rgba(153, 153, 153, 0.2), -10px 0 1px rgba(153, 153, 153, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.3), inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.082)'
-                    }}
-                  >
-                    Twitter
+                    LinkedIn
                   </div>
                 </li>
 
@@ -275,9 +239,11 @@ const Footer = () => {
                       boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.3), inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164)'
                     }}
                   />
-                  <button type="button" aria-label="Visit our Instagram page" className="block border-none bg-transparent p-0 cursor-pointer">
+                  <button type="button" aria-label="Visit our Instagram page" className="block border-none bg-transparent p-0 cursor-pointer"
+                   onClick={() => window.open('http://www.instagram.com/ai_evoke?igsh=N2o4NXlvY2Q4emc1', '_blank', 'noopener,noreferrer')}>
                     <svg 
                       className="transition-all duration-300 p-4 h-[60px] w-[60px] rounded-full text-[#FFAE00] fill-current group-hover:translate-x-[5px] group-hover:-translate-y-[5px]" 
+                
                       xmlns="http://www.w3.org/2000/svg" 
                       viewBox="0 0 448 512"
                       style={{

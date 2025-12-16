@@ -250,6 +250,8 @@ html {
   width: 200%;
   animation: marquee 30s linear infinite;
   will-change: transform;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
 }
 
 .marquee-content:hover {
@@ -358,7 +360,7 @@ html {
 .testimonial-marquee-content {
   display: flex;
   width: calc((400px + 2rem) * 8);
-  animation: marquee-testimonials 60s linear infinite;
+  animation: marquee-testimonials 45s linear infinite;
 }
 
 .testimonial-marquee-content:hover {

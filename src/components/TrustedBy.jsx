@@ -6,7 +6,7 @@ import SipconLogo from '../assets/Sipcon.jpg';
 import damnartLogo from '../assets/Damnart.png';
 import eurocertLogo from '../assets/eurocert.webp';
 import itcLogo from '../assets/itc.png';
-import sustainableLogo from '../assets/Sustainable.png';
+import sustainableLogo from '../assets/Sustainable.jpg';
 import grnataLogo from '../assets/Grnata.png';
 
 /**
@@ -14,16 +14,17 @@ import grnataLogo from '../assets/Grnata.png';
  * Marquee section displaying trusted organizations with logos
  */
 const TrustedBy = () => {
+  const titleRef = useScrollAnimation();
   const ref = useScrollAnimation();
 
   const companies = [
-    { name: 'Damnart', logo: damnartLogo, displayName: 'Damnart' },
+    { name: 'DamnArt', logo: damnartLogo, displayName: 'DamnArt' },
     { name: 'Eurocert', logo: eurocertLogo, displayName: 'Eurocert' },
     { name: 'ITC India', logo: itcLogo, displayName: 'ITC India' },
     { name: 'Sustainable Futures Trainings', logo: sustainableLogo, displayName: 'Sustainable Futures Trainings' },
     { name: 'Grnata', logo: grnataLogo, displayName: 'Grnata' },
     {name:'Sipcon', logo: SipconLogo, displayName:'Sipcon'},
-    {name:'Astroremedis', logo: AstroremedisLogo, displayName:'Astroremedis'},
+    {name:'AstroRemedis', logo: AstroremedisLogo, displayName:'AstroRemedis'},
     {name:'Eduonix', logo: EduonixLogo, displayName:'Eduonix'}
 
   ];
@@ -31,13 +32,18 @@ const TrustedBy = () => {
   return (
     <section className="py-16 bg-[#0A0A0A] border-t border-b border-gray-900/50">
       <div className="container mx-auto px-6">
-        <p className="text-center text-sm text-gray-400 font-semibold mb-10 tracking-wider uppercase">
-          TRUSTED BY VISIONARY ORGANIZATIONS FOR 24/7 INTELLIGENCE
-        </p>
+        <div ref={titleRef} className="text-center max-w-3xl mx-auto animate-on-scroll fade-in-up mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>
+          Powering  <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">Businesses </span>Across Industries
+          </h2>
+          <p className="text-base sm:text-lg text-gray-400" style={{ fontFamily: "'Poppins', sans-serif" }}>
+            Trusted by visionary organizations for 24/7 intelligence
+          </p>
+        </div>
         <div ref={ref} className="marquee animate-on-scroll fade-in">
           <div className="marquee-content">
             {/* Duplicate content multiple times for seamless endless loop */}
-            {[...companies, ...companies, ...companies, ...companies].map((company, index) => (
+            {[...companies, ...companies, ...companies, ...companies, ...companies, ...companies].map((company, index) => (
               <div 
                 key={index} 
                 className="marquee-item flex flex-col items-center justify-center gap-3 group"

@@ -7,7 +7,6 @@ import {
   Building,
   Phone,
   MessageSquare,
-  FileText,
   CheckCircle,
   XCircle
 } from 'lucide-react';
@@ -32,15 +31,6 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false); // Tracks form submission state
   const [status, setStatus] = useState({ type: '', message: '' }); // Success/error message state
 
-  // Subject dropdown options
-  const subjectOptions = [
-    'General Query',
-    'Sales Inquiry',
-    'Technical Support',
-    'Partnership Opportunity',
-    'Feature Request',
-    'Other',
-  ];
 
   // Initialize EmailJS
   useEffect(() => {
@@ -71,10 +61,10 @@ const Contact = () => {
     const templateParams = {
       fullName: formData.fullName,
       email: formData.email,
-      company: formData.company || '', // Optional field
-      phone: formData.phone || '', // Optional field
-      subject: formData.subject,
-      message: formData.message,
+      company: formData.company , 
+      phone: formData.phone, 
+      
+      message: formData.message || ''// Optional field
     };
 
     try {
@@ -178,7 +168,8 @@ const Contact = () => {
             <div className="group">
               <label htmlFor="company" className="flex items-center gap-2 text-gray-300 mb-2 text-sm font-medium" style={{ fontFamily: "'Poppins', sans-serif" }}>
                 <Building className="w-4 h-4 text-yellow-500" />
-                Company
+                
+                Company  <span className="text-yellow-500">*</span>
               </label>
               <input
                 type="text"
@@ -186,6 +177,7 @@ const Contact = () => {
                 name="company"
                 value={formData.company}
                 onChange={handleChange}
+                required
                 className="w-full px-4 py-3 bg-[#0A0A0A] border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all duration-300"
                 placeholder="Enter your company name"
               />
@@ -215,7 +207,7 @@ const Contact = () => {
               <div className="group">
                 <label htmlFor="phone" className="flex items-center gap-2 text-gray-300 mb-2 text-sm font-medium" style={{ fontFamily: "'Poppins', sans-serif" }}>
                   <Phone className="w-4 h-4 text-yellow-500" />
-                  Phone Number
+                  Phone Number   <span className="text-yellow-500">*</span>
                 </label>
                 <input
                   type="tel"
@@ -223,48 +215,28 @@ const Contact = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
+                  required
                   className="w-full px-4 py-3 bg-[#0A0A0A] border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all duration-300"
                   placeholder="+1 (555) 000-0000"
                 />
               </div>
             </div>
 
-            {/* Subject Dropdown - Required field */}
-            <div className="group">
-              <label htmlFor="subject" className="flex items-center gap-2 text-gray-300 mb-2 text-sm font-medium" style={{ fontFamily: "'Poppins', sans-serif" }}>
-                <FileText className="w-4 h-4 text-yellow-500" />
-                Subject <span className="text-yellow-500">*</span>
-              </label>
-              <select
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 bg-[#0A0A0A] border border-gray-700 rounded-lg text-white focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all duration-300 appearance-none cursor-pointer"
-              >
-                <option value="" disabled className="bg-[#0A0A0A]">Select a subject</option>
-                {/* Map through subject options */}
-                {subjectOptions.map((option) => (
-                  <option key={option} value={option} className="bg-[#0A0A0A]">
-                    {option}
-                  </option>
-                ))}
-              </select>
-            </div>
+      
+            
 
             {/* Message Textarea - Required field */}
             <div className="group">
               <label htmlFor="message" className="flex items-center gap-2 text-gray-300 mb-2 text-sm font-medium" style={{ fontFamily: "'Poppins', sans-serif" }}>
                 <MessageSquare className="w-4 h-4 text-yellow-500" />
-                Message <span className="text-yellow-500">*</span>
+                Message 
               </label>
               <textarea
                 id="message"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                required
+                
                 rows={6}
                 className="w-full px-4 py-3 bg-[#0A0A0A] border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all duration-300 resize-none"
                 placeholder="Tell us about your inquiry..."
