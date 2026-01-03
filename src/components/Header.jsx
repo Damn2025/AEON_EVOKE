@@ -91,8 +91,8 @@ const Header = () => {
         }`}
       >
         <div className="container mx-auto px-6 flex justify-between items-center">
-          <a
-             href=""
+          <div
+             
             className="flex items-center gap-2 text-2xl font-bold tracking-tighter text-white hover:scale-105 transition-transform duration-300 group"
           >
             <img
@@ -105,7 +105,7 @@ const Header = () => {
               
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-500 group-hover:w-full transition-all duration-300"></span>
             </span>
-          </a>
+          </div>
 
           {/* Desktop Navigation - Only visible on medium screens and above */}
           <nav className="hidden md:flex items-center space-x-2 px-4 py-4">
