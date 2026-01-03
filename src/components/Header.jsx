@@ -92,7 +92,7 @@ const Header = () => {
       >
         <div className="container mx-auto px-6 flex justify-between items-center">
           <a
-            href="/"
+             href=""
             className="flex items-center gap-2 text-2xl font-bold tracking-tighter text-white hover:scale-105 transition-transform duration-300 group"
           >
             <img
