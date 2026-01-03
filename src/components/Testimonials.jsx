@@ -10,30 +10,42 @@ const Testimonials = () => {
   const marqueeRef = useScrollAnimation();
 
   const testimonials = [
-    {
-      text: "AEON tripled our lead qualification rate in the first month. Our sales team now only talks to high-intent leads, and our pipeline has never been stronger.",
-      name: 'Jane Smith',
-      role: 'VP of Sales, Nexus Inc.',
-      initials: 'JS',
-    },
-    {
-      text: "We cut our support ticket AHT by 65%. AEON handles 90% of our tier-1 queries, freeing our support staff for complex issues. It's a game-changer.",
-      name: 'Michael Doe',
-      role: 'Director of Support, Quantum',
-      initials: 'MD',
-    },
-    {
-      text: "The no-code builder is incredibly powerful. We automated our entire partner onboarding workflow in an afternoon. What used to take days now takes minutes.",
-      name: 'Alex Lee',
-      role: 'Head of Operations, Aperture',
-      initials: 'AL',
-    },
-    {
-      text: "Finally, an AI that understands security. The compliance and data protection features gave our CISO the confidence to deploy this across the entire company.",
-      name: 'Rachel Brown',
-      role: 'CTO, Zenith Solutions',
-      initials: 'RB',
-    },
+   {
+  text: "AEON helped DamnArt automate customer conversations without writing a single line of code. We saw better engagement and higher-quality inquiries within the first few weeks.",
+  name: 'Aarav Mehta',
+  role: 'Growth Lead, DamnArt',
+  initials: 'AM',
+},
+{
+  text: "For Meddevices, accuracy and compliance are critical. AEON’s chatbot handles medical queries efficiently while maintaining data protection and reducing our response time drastically.",
+  name: 'Dr. Neha Sharma',
+  role: 'Product Lead, Meddevices',
+  initials: 'NS',
+},
+{
+  text: "AEON streamlined Eurocert’s certification support end-to-end. From application guidance to document queries, the chatbot reduced manual effort and improved turnaround time.",
+  name: 'Rohit Verma',
+  role: 'Operations Manager, Eurocert',
+  initials: 'RV',
+},
+{
+  text: "The AEON no-code builder integrated seamlessly with Zoho for Sipcoin. We automated lead handling, ticket routing, and follow-ups in hours instead of days.",
+  name: 'Kunal Patel',
+  role: 'Automation Head, Sipcoin',
+  initials: 'KP',
+},
+{
+  text: "AEON’s property chatbot transformed how Grnata engages buyers. It filters high-intent leads and provides instant responses, making property discovery faster and smarter.",
+  name: 'Priya Nair',
+  role: 'Business Director, Grnata',
+  initials: 'PN',
+},
+{
+  text: "AEON enabled Astro Remedies to launch a Kundali analysis chatbot with ease. Users now receive instant, personalized astrological insights and remedies without manual consultation.",
+  name: 'Pandit Rakesh Mishra',
+  role: 'Chief Astrologer, Astro Remedies',
+  initials: 'RM',
+},
   ];
 
   // Duplicate testimonials for seamless loop
